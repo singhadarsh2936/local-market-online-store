@@ -1250,12 +1250,73 @@ function createProductCardHTML(p) {
 }
 
 // ==========================================================================
+// Vendor Card HTML Generator
+// ==========================================================================
+
+function createVendorCardHTML(v) {
+  return `
+    <article class="vendor-card">
+      <div class="vendor-banner" style="background-image: url('${v.banner}');">
+        <div class="vendor-banner-overlay"></div>
+        <span class="vendor-badge-top">✓ ${v.badge}</span>
+      </div>
+
+      <div class="vendor-avatar-wrap">
+        <img src="${v.avatar}" alt="${v.name}" class="vendor-avatar">
+      </div>
+
+      <div class="vendor-body">
+        <div class="vendor-name-row">
+          <h3 class="vendor-title">${v.name}</h3>
+          <span class="vendor-category-tag">${v.category}</span>
+        </div>
+
+        <div class="vendor-location">
+          <span>📍 ${v.location}</span>
+          <span>•</span>
+          <span>⚡ ${v.distance} away</span>
+        </div>
+
+        <p class="vendor-bio">${v.bio}</p>
+
+        <div class="vendor-specialties">
+          ${(v.specialties || []).map(s => `<span class="specialty-pill">${s}</span>`).join('')}
+        </div>
+
+        <div class="vendor-card-footer">
+          <div class="vendor-rating-box">
+            <span>★</span> ${v.rating} <span style="color:var(--text-light); font-weight:400;">(${v.reviews || 0} reviews)</span>
+          </div>
+          <a href="shop.html" class="btn btn-primary btn-sm">
+            Shop Stall ➔
+          </a>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+// ==========================================================================
 // Global Event Listeners & Modals Initialization
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
   marketStore.updateBadges();
   marketStore.updateComparisonPill();
+
+  // Populate Home Featured Products dynamically if container exists
+  const homeProdGrid = document.getElementById('homeFeaturedGrid');
+  if (homeProdGrid) {
+    const featured = marketStore.products.slice(0, 6);
+    homeProdGrid.innerHTML = featured.map(p => createProductCardHTML(p)).join('');
+  }
+
+  // Populate Home Featured Vendors dynamically if container exists
+  const homeVendGrid = document.getElementById('homeVendorsGrid');
+  if (homeVendGrid) {
+    const featuredVendors = marketStore.vendors.slice(0, 3);
+    homeVendGrid.innerHTML = featuredVendors.map(v => createVendorCardHTML(v)).join('');
+  }
 
   // Header scroll detection
   const header = document.querySelector('.site-header');

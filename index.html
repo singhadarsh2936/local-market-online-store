@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TownSquare Market | Local Market Online Store for Small Vendors</title>
+  <meta name="description" content="Shop fresh organic produce, artisan sourdough bakes, handcrafted pottery, and pure honey directly from verified neighborhood small vendors.">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥬</text></svg>">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container">
+      <span>🚚 <span class="highlight">Free Neighborhood Delivery</span> on orders above $35 • Support independent artisans, bakers & farmers!</span>
+    </div>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+          <div class="logo-icon">🌿</div>
+          <div>Town<span class="highlight">Square</span></div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="nav-menu">
+          <a href="index.html" class="nav-link active">Home</a>
+          <a href="shop.html" class="nav-link">Marketplace</a>
+          <a href="vendors.html" class="nav-link">Local Stalls</a>
+          <a href="join-vendor.html" class="nav-link">Become a Vendor</a>
+          <a href="dashboard.html" class="nav-link">Admin Portal</a>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <!-- Search box -->
+          <form class="header-search" action="shop.html" method="GET">
+            <span class="search-icon">🔍</span>
+            <input type="text" name="q" placeholder="Search sourdough, honey...">
+          </form>
+
+          <!-- Wishlist Button -->
+          <a href="shop.html" class="action-btn" aria-label="Favorites list">
+            🤍
+            <span class="action-badge header-wishlist-badge" style="display:none;">0</span>
+          </a>
+
+          <!-- Cart Button -->
+          <button id="openCartBtn" class="action-btn" aria-label="Open shopping basket">
+            🧺
+            <span class="action-badge header-cart-badge" style="display:none;">0</span>
+          </button>
+
+          <!-- Sell with us CTA button -->
+          <button id="openTrackOrderBtn" class="btn btn-outline btn-sm" style="font-size:0.8rem; padding:0.45rem 0.85rem;">
+            🚚 Track Order
+          </button>
+          <a href="join-vendor.html" class="btn btn-primary btn-sm vendor-cta-btn">
+            + Open Stall
+          </a>
+
+          <!-- Mobile Toggle -->
+          <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+            ☰
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Hero Copy -->
+          <div class="hero-content">
+            <div class="hero-pill">
+              <span class="dot"></span>
+              Fresh Morning Harvests & Small-Batch Crafts
+            </div>
+
+            <h1 class="hero-title">
+              Shop Small. Support Local. <br>
+              <span class="highlight-text">Love Fresh.</span>
+            </h1>
+
+            <p class="hero-subtitle">
+              TownSquare connects your household directly with independent neighborhood bakers, organic family farmers, and handcrafted artisans. Zero middleman markups, 100% community love.
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="shop.html" class="btn btn-primary btn-lg">
+                Explore Marketplace ➔
+              </a>
+              <a href="vendors.html" class="btn btn-outline btn-lg">
+                Meet Local Sellers
+              </a>
+            </div>
+
+            <div class="hero-stats">
+              <div class="hero-stat-item">
+                <span class="hero-stat-number">48+</span>
+                <span class="hero-stat-label">Verified Local Stalls</span>
+              </div>
+              <div class="hero-stat-item">
+                <span class="hero-stat-number">100%</span>
+                <span class="hero-stat-label">Direct Farm-to-Door</span>
+              </div>
+              <div class="hero-stat-item">
+                <span class="hero-stat-number">&lt; 6 hrs</span>
+                <span class="hero-stat-label">Harvest-to-Delivery</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Media Showcase -->
+          <div class="hero-visual">
+            <div class="hero-card-stack">
+              <img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=800&q=80" alt="Local Farmers Market Basket" class="hero-main-img">
+            </div>
+
+            <!-- Floating Pill 1 -->
+            <div class="floating-badge floating-badge-1">
+              <div class="floating-icon green">🥐</div>
+              <div class="floating-text">
+                <h4>Mama Rosa's Hearth</h4>
+                <p>Woodfired Sourdough just baked</p>
+              </div>
+            </div>
+
+            <!-- Floating Pill 2 -->
+            <div class="floating-badge floating-badge-2">
+              <div class="floating-icon orange">🍓</div>
+              <div class="floating-text">
+                <h4>Sunbeam Organic</h4>
+                <p>Strawberries picked 2 hrs ago</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Strip Section -->
+    <section class="categories-section">
+      <div class="container">
+        <div class="section-header" style="margin-bottom: 2rem;">
+          <span class="section-tag">Market Aisles</span>
+          <h2 class="section-title">Explore Neighborhood Specialties</h2>
+          <p class="section-desc">Handcrafted items made in small batches within 15 miles of your home.</p>
+        </div>
+
+        <div class="categories-grid">
+          <a href="shop.html?category=produce" class="category-card">
+            <div class="category-icon">🥦</div>
+            <h3 class="category-name">Organic Produce</h3>
+            <span class="category-count">18 Fresh Items</span>
+          </a>
+
+          <a href="shop.html?category=bakery" class="category-card">
+            <div class="category-icon">🥖</div>
+            <h3 class="category-name">Artisan Bakery</h3>
+            <span class="category-count">12 Daily Bakes</span>
+          </a>
+
+          <a href="shop.html?category=pantry" class="category-card">
+            <div class="category-icon">🍯</div>
+            <h3 class="category-name">Pantry & Honey</h3>
+            <span class="category-count">15 Preserves</span>
+          </a>
+
+          <a href="shop.html?category=crafts" class="category-card">
+            <div class="category-icon">🏺</div>
+            <h3 class="category-name">Pottery & Crafts</h3>
+            <span class="category-count">9 Studio Pieces</span>
+          </a>
+
+          <a href="shop.html?category=living" class="category-card">
+            <div class="category-icon">🧼</div>
+            <h3 class="category-name">Home & Living</h3>
+            <span class="category-count">11 Natural Goods</span>
+          </a>
+
+          <a href="shop.html" class="category-card">
+            <div class="category-icon">✨</div>
+            <h3 class="category-name">View All Goods</h3>
+            <span class="category-count">All Categories</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products Spotlight -->
+    <section class="featured-products-section" style="padding: 5rem 0;">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Weekly Harvest Picks</span>
+          <h2 class="section-title">Trending In Your Neighborhood</h2>
+          <p class="section-desc">Locals love these top-rated fresh delicacies and handmade artisan essentials.</p>
+        </div>
+
+        <!-- Featured Products Grid (Populated directly with our top 6 picks) -->
+        <div class="products-grid" id="homeFeaturedGrid">
+          <!-- Card 1 -->
+          <article class="product-card" data-category="bakery" data-id="1">
+            <div class="product-thumb">
+              <img src="https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?auto=format&fit=crop&w=700&q=80" alt="Woodfired Sourdough Batard" loading="lazy">
+              <div class="product-badges">
+                <span class="badge badge-artisan">Artisan Baker</span>
+              </div>
+              <button class="btn-wishlist" data-id="1" aria-label="Save to favorites">🤍</button>
+              <button class="quick-view-overlay-btn" data-id="1">Quick View 👁️</button>
+            </div>
+            <div class="product-details">
+              <span class="product-vendor">📍 Mama Rosa's Hearth Bakery</span>
+              <h4 class="product-title">Woodfired Sourdough Batard</h4>
+              <div class="product-meta">
+                <div class="product-rating"><span>★</span> 4.9 <span class="count">(38)</span></div>
+                <span class="product-distance">⚡ 1.2 miles away</span>
+              </div>
+              <div class="product-footer">
+                <div class="product-price-box">
+                  <span class="product-price">$6.50</span>
+                  <span class="product-unit">per loaf (750g)</span>
+                </div>
+                <button class="btn-add-cart" data-id="1">+ Add</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="product-card" data-category="produce" data-id="2">
+            <div class="product-thumb">
+              <img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=700&q=80" alt="Heirloom Strawberries" loading="lazy">
+              <div class="product-badges">
+                <span class="badge badge-organic">100% Organic</span>
+              </div>
+              <button class="btn-wishlist" data-id="2" aria-label="Save to favorites">🤍</button>
+              <button class="quick-view-overlay-btn" data-id="2">Quick View 👁️</button>
+            </div>
+            <div class="product-details">
+              <span class="product-vendor">📍 Sunbeam Organic Farm</span>
+              <h4 class="product-title">Fresh Handpicked Heirloom Strawberries</h4>
+              <div class="product-meta">
+                <div class="product-rating"><span>★</span> 5.0 <span class="count">(52)</span></div>
+                <span class="product-distance">⚡ 3.5 miles away</span>
+              </div>
+              <div class="product-footer">
+                <div class="product-price-box">
+                  <span class="product-price">$5.25</span>
+                  <span class="product-unit">1 lb basket</span>
+                </div>
+                <button class="btn-add-cart" data-id="2">+ Add</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="product-card" data-category="pantry" data-id="3">
+            <div class="product-thumb">
+              <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=700&q=80" alt="Raw Wildflower Honeycomb Jar" loading="lazy">
+              <div class="product-badges">
+                <span class="badge badge-best">Best Seller</span>
+              </div>
+              <button class="btn-wishlist" data-id="3" aria-label="Save to favorites">🤍</button>
+              <button class="quick-view-overlay-btn" data-id="3">Quick View 👁️</button>
+            </div>
+            <div class="product-details">
+              <span class="product-vendor">📍 Hometown Apiary & Honey</span>
+              <h4 class="product-title">Raw Wildflower Honeycomb Jar</h4>
+              <div class="product-meta">
+                <div class="product-rating"><span>★</span> 4.8 <span class="count">(29)</span></div>
+                <span class="product-distance">⚡ 4.1 miles away</span>
+              </div>
+              <div class="product-footer">
+                <div class="product-price-box">
+                  <span class="product-price">$13.50</span>
+                  <span class="product-unit">16 oz jar</span>
+                </div>
+                <button class="btn-add-cart" data-id="3">+ Add</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="product-card" data-category="crafts" data-id="4">
+            <div class="product-thumb">
+              <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=700&q=80" alt="Hand-Thrown Ceramic Coffee Mug" loading="lazy">
+              <div class="product-badges">
+                <span class="badge badge-artisan">Handmade</span>
+              </div>
+              <button class="btn-wishlist" data-id="4" aria-label="Save to favorites">🤍</button>
+              <button class="quick-view-overlay-btn" data-id="4">Quick View 👁️</button>
+            </div>
+            <div class="product-details">
+              <span class="product-vendor">📍 Copper & Clay Pottery</span>
+              <h4 class="product-title">Hand-Thrown Ceramic Coffee Mug</h4>
+              <div class="product-meta">
+                <div class="product-rating"><span>★</span> 4.9 <span class="count">(19)</span></div>
+                <span class="product-distance">⚡ 0.8 miles away</span>
+              </div>
+              <div class="product-footer">
+                <div class="product-price-box">
+                  <span class="product-price">$24.00</span>
+                  <span class="product-unit">12 oz mug</span>
+                </div>
+                <button class="btn-add-cart" data-id="4">+ Add</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="product-card" data-category="bakery" data-id="7">
+            <div class="product-thumb">
+              <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=700&q=80" alt="French Butter Croissants" loading="lazy">
+              <div class="product-badges">
+                <span class="badge badge-best">Daily Special</span>
+              </div>
+              <button class="btn-wishlist" data-id="7" aria-label="Save to favorites">🤍</button>
+              <button class="quick-view-overlay-btn" data-id="7">Quick View 👁️</button>
+            </div>
+            <div class="product-details">
+              <span class="product-vendor">📍 Mama Rosa's Hearth Bakery</span>
+              <h4 class="product-title">French Butter Croissants (Pack of 4)</h4>
+              <div class="product-meta">
+                <div class="product-rating"><span>★</span> 5.0 <span class="count">(44)</span></div>
+                <span class="product-distance">⚡ 1.2 miles away</span>
+              </div>
+              <div class="product-footer">
+                <div class="product-price-box">
+                  <span class="product-price">$11.00</span>
+                  <span class="product-unit">4-pack</span>
+                </div>
+                <button class="btn-add-cart" data-id="7">+ Add</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="product-card" data-category="living" data-id="8">
+            <div class="product-thumb">
+              <img src="https://images.unsplash.com/photo-1607006310452-9b2f2939634e?auto=format&fit=crop&w=700&q=80" alt="Lavender Gentle Goat Milk Soap" loading="lazy">
+              <div class="product-badges">
+                <span class="badge badge-artisan">Chemical Free</span>
+              </div>
+              <button class="btn-wishlist" data-id="8" aria-label="Save to favorites">🤍</button>
+              <button class="quick-view-overlay-btn" data-id="8">Quick View 👁️</button>
+            </div>
+            <div class="product-details">
+              <span class="product-vendor">📍 Willow Creek Herbals</span>
+              <h4 class="product-title">Lavender & Oat Goat Milk Soap</h4>
+              <div class="product-meta">
+                <div class="product-rating"><span>★</span> 4.9 <span class="count">(26)</span></div>
+                <span class="product-distance">⚡ 2.1 miles away</span>
+              </div>
+              <div class="product-footer">
+                <div class="product-price-box">
+                  <span class="product-price">$7.50</span>
+                  <span class="product-unit">4.5 oz bar</span>
+                </div>
+                <button class="btn-add-cart" data-id="8">+ Add</button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div style="text-align: center; margin-top: 3.5rem;">
+          <a href="shop.html" class="btn btn-primary btn-lg">
+            Browse All 40+ Local Products ➔
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose TownSquare (Value Proposition) -->
+    <section class="value-props-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Community First</span>
+          <h2 class="section-title">The TownSquare Difference</h2>
+          <p class="section-desc">When you order from us, you aren't funding distant warehouses. You are supporting your actual neighbors.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-box">
+            <div class="feature-icon-wrap">🌱</div>
+            <h3 class="feature-title">Pure Farm-to-Table</h3>
+            <p class="feature-desc">Fruits, vegetables, and flowers picked hours before arrival, keeping maximum nutrients and flavor intact.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon-wrap">🤝</div>
+            <h3 class="feature-title">Fair Vendor Payouts</h3>
+            <p class="feature-desc">Small vendors keep over 92% of sales, allowing local creators to thrive and grow their craft sustainably.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon-wrap">🚲</div>
+            <h3 class="feature-title">Green Local Delivery</h3>
+            <p class="feature-desc">Eco-friendly bike courier and clustered neighborhood drop-offs drastically cut local carbon footprints.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon-wrap">🛡️</div>
+            <h3 class="feature-title">100% Verified Quality</h3>
+            <p class="feature-desc">Every stall is visited, food-certified, and vetted by our community curation team before opening.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vendor Spotlight Section -->
+    <section class="vendors-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Meet The Makers</span>
+          <h2 class="section-title">Featured Local Stalls</h2>
+          <p class="section-desc">The talented artisans, bakers, and growers powering your neighborhood economy.</p>
+        </div>
+
+        <div class="vendors-grid">
+          <!-- Vendor Card 1 -->
+          <article class="vendor-card">
+            <div class="vendor-banner" style="background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80');">
+              <div class="vendor-banner-overlay"></div>
+              <span class="vendor-badge-top">✓ Master Baker</span>
+            </div>
+            <div class="vendor-avatar-wrap">
+              <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=300&q=80" alt="Mama Rosa" class="vendor-avatar">
+            </div>
+            <div class="vendor-body">
+              <div class="vendor-name-row">
+                <h3 class="vendor-title">Mama Rosa's Hearth Bakery</h3>
+                <span class="vendor-category-tag">Artisan Bakery</span>
+              </div>
+              <div class="vendor-location">
+                <span>📍 West End Market Stall #4</span>
+                <span>•</span>
+                <span>⚡ 1.2 miles away</span>
+              </div>
+              <p class="vendor-bio">Baking traditional sourdoughs, golden croissants, and focaccia since 2010. We use stoneground heritage grain and zero artificial dough conditioners.</p>
+              <div class="vendor-specialties">
+                <span class="specialty-pill">Sourdough</span>
+                <span class="specialty-pill">French Pastries</span>
+                <span class="specialty-pill">Artisan Focaccia</span>
+              </div>
+              <div class="vendor-card-footer">
+                <div class="vendor-rating-box">
+                  <span>★</span> 4.9 <span style="color:var(--text-light); font-weight:400;">(142 reviews)</span>
+                </div>
+                <a href="shop.html" class="btn btn-primary btn-sm">Shop Stall ➔</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Vendor Card 2 -->
+          <article class="vendor-card">
+            <div class="vendor-banner" style="background-image: url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800&q=80');">
+              <div class="vendor-banner-overlay"></div>
+              <span class="vendor-badge-top">✓ Certified Organic</span>
+            </div>
+            <div class="vendor-avatar-wrap">
+              <img src="https://images.unsplash.com/photo-1595273670150-bd0c3c392e46?auto=format&fit=crop&w=300&q=80" alt="Sunbeam Organic Farm" class="vendor-avatar">
+            </div>
+            <div class="vendor-body">
+              <div class="vendor-name-row">
+                <h3 class="vendor-title">Sunbeam Organic Farm</h3>
+                <span class="vendor-category-tag">Organic Produce</span>
+              </div>
+              <div class="vendor-location">
+                <span>📍 Riverdale Eco Valley</span>
+                <span>•</span>
+                <span>⚡ 3.5 miles away</span>
+              </div>
+              <p class="vendor-bio">Family-run regenerative farm supplying our neighborhood with fresh strawberries, heirloom tomatoes, microgreens, and crisp root vegetables.</p>
+              <div class="vendor-specialties">
+                <span class="specialty-pill">Heirloom Berries</span>
+                <span class="specialty-pill">Baby Carrots</span>
+                <span class="specialty-pill">Microgreens</span>
+              </div>
+              <div class="vendor-card-footer">
+                <div class="vendor-rating-box">
+                  <span>★</span> 5.0 <span style="color:var(--text-light); font-weight:400;">(215 reviews)</span>
+                </div>
+                <a href="shop.html" class="btn btn-primary btn-sm">Shop Stall ➔</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Vendor Card 3 -->
+          <article class="vendor-card">
+            <div class="vendor-banner" style="background-image: url('https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=800&q=80');">
+              <div class="vendor-banner-overlay"></div>
+              <span class="vendor-badge-top">✓ Local Artisan</span>
+            </div>
+            <div class="vendor-avatar-wrap">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80" alt="Copper & Clay" class="vendor-avatar">
+            </div>
+            <div class="vendor-body">
+              <div class="vendor-name-row">
+                <h3 class="vendor-title">Copper & Clay Pottery</h3>
+                <span class="vendor-category-tag">Handmade Crafts</span>
+              </div>
+              <div class="vendor-location">
+                <span>📍 Downtown Arts District</span>
+                <span>•</span>
+                <span>⚡ 0.8 miles away</span>
+              </div>
+              <p class="vendor-bio">Independent potter creating functional tableware, mugs, and plant pots inspired by natural geological textures and earth tones.</p>
+              <div class="vendor-specialties">
+                <span class="specialty-pill">Ceramic Mugs</span>
+                <span class="specialty-pill">Pasta Bowls</span>
+                <span class="specialty-pill">Planters</span>
+              </div>
+              <div class="vendor-card-footer">
+                <div class="vendor-rating-box">
+                  <span>★</span> 4.9 <span style="color:var(--text-light); font-weight:400;">(64 reviews)</span>
+                </div>
+                <a href="shop.html" class="btn btn-primary btn-sm">Shop Stall ➔</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+          <a href="vendors.html" class="btn btn-outline btn-lg">
+            Explore All 12+ Neighborhood Stalls ➔
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Community Testimonials -->
+    <section class="testimonials-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Loved By Neighbors</span>
+          <h2 class="section-title">What Our Community Says</h2>
+          <p class="section-desc">Over 2,400 neighborhood households regularly shop on TownSquare.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">"The sourdough batard from Mama Rosa arrived still warm in the morning! It’s night and day compared to supermarket bread. I do my weekly pantry shop here now."</p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80" alt="Sarah Jenkins" class="author-avatar">
+              <div class="author-info">
+                <h5>Sarah Jenkins</h5>
+                <p>Riverdale Resident • Customer for 1 yr</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">"As a customer, you feel directly connected to the farmers. The heirloom strawberries taste like strawberries used to taste when I was a kid. Highly recommended!"</p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="David Sterling" class="author-avatar">
+              <div class="author-info">
+                <h5>David Sterling</h5>
+                <p>West End Resident • Verified Buyer</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">"Opening our pottery stall on TownSquare doubled our small studio's orders in three months! The platform takes care of payments and local deliveries seamlessly."</p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Elena Morales" class="author-avatar">
+              <div class="author-info">
+                <h5>Elena Morales</h5>
+                <p>Artisan Potter • TownSquare Seller</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Become a Vendor CTA Section -->
+    <section class="vendor-banner-cta">
+      <div class="container">
+        <div class="banner-cta-inner">
+          <div class="banner-cta-content">
+            <h2 class="banner-cta-title">Do you bake, harvest, or craft locally?</h2>
+            <p class="banner-cta-desc">
+              Join 40+ independent small businesses reaching thousands of conscious local buyers without expensive retail rents or middleman fees.
+            </p>
+            <div class="banner-cta-perks">
+              <div class="perk-item"><span class="icon">✓</span> 0% commission for first 60 days</div>
+              <div class="perk-item"><span class="icon">✓</span> We handle local same-day courier dispatch</div>
+              <div class="perk-item"><span class="icon">✓</span> Direct weekly bank payouts</div>
+            </div>
+            <a href="join-vendor.html" class="btn btn-accent btn-lg">Apply for an Online Stall ➔</a>
+          </div>
+
+          <div style="flex-shrink: 0; text-align: center;">
+            <div style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: var(--radius-lg); padding: 2.25rem; max-width: 320px; backdrop-filter: blur(10px);">
+              <div style="font-size: 3rem; margin-bottom: 0.75rem;">🏪</div>
+              <h3 style="color: #fff; font-size: 1.35rem; margin-bottom: 0.5rem; font-family: var(--font-serif);">Fast Onboarding</h3>
+              <p style="color: #cfd8d3; font-size: 0.875rem; margin-bottom: 1.25rem;">Start listing your seasonal products in as little as 24 hours.</p>
+              <a href="join-vendor.html" class="btn btn-primary btn-sm" style="background:#fff; color:var(--primary-dark); width: 100%;">
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Slide-Out Shopping Basket Drawer -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay">
+    <div class="cart-drawer">
+      <div class="cart-header">
+        <h3 class="cart-title">
+          <span>🧺</span> Your Market Basket
+        </h3>
+        <button class="cart-close-btn" id="closeCartBtn" aria-label="Close basket">✕</button>
+      </div>
+
+      <div class="cart-items-container" id="cartItemsContainer">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div class="cart-footer">
+        <div class="cart-subtotal-row">
+          <span>Items Subtotal:</span>
+          <strong id="cartSubtotal">$0.00</strong>
+        </div>
+        <div class="cart-subtotal-row">
+          <span>Neighborhood Delivery:</span>
+          <span id="cartDelivery" style="color:var(--primary); font-weight:700;">$0.00</span>
+        </div>
+        <div class="cart-total-row">
+          <span>Estimated Total:</span>
+          <span id="cartTotal" style="color:var(--primary-dark);">$0.00</span>
+        </div>
+        <button id="cartCheckoutBtn" class="btn btn-primary btn-checkout">
+          Proceed to Checkout ➔
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick View Product Modal -->
+  <div class="modal-overlay" id="quickViewModal">
+    <div class="modal-content">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">✕</button>
+      <div class="modal-grid">
+        <div class="modal-img-wrap">
+          <img src="" alt="Product view" class="modal-img">
+        </div>
+        <div class="modal-body">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
+            <span class="modal-vendor-tag"></span>
+            <span class="modal-stock-tag" style="font-size:0.8rem; font-weight:700;"></span>
+          </div>
+          <h2 class="modal-title"></h2>
+          <div class="modal-price-rating">
+            <div>
+              <span class="modal-price"></span>
+              <span class="modal-unit" style="font-size: 0.8rem; color:var(--text-muted); margin-left:0.25rem;"></span>
+            </div>
+            <div class="modal-rating-text" style="color: var(--secondary); font-weight:700; font-size:0.9rem;"></div>
+          </div>
+          <p class="modal-description"></p>
+          <div class="modal-vendor-story">
+            <strong>Vendor Heritage: </strong><span class="modal-vendor-story-text"></span>
+          </div>
+          <div class="modal-actions" style="margin-bottom:1.25rem;">
+            <div class="modal-qty">
+              <button id="modalMinus">−</button>
+              <span id="modalQtyVal" class="modal-qty-val">1</span>
+              <button id="modalPlus">+</button>
+            </div>
+            <button class="btn btn-primary modal-add-btn" style="flex-grow:1;">
+              Add to Basket 🛒
+            </button>
+          </div>
+
+          <div style="border-top:1px solid var(--border-light); padding-top:1rem;">
+            <h4 style="font-size:0.9rem; font-weight:700; margin-bottom:0.4rem; color:var(--text-main);">Leave Verified Feedback</h4>
+            <form id="modalReviewForm" style="display:flex; flex-direction:column; gap:0.5rem;">
+              <div style="display:flex; gap:0.5rem; align-items:center;">
+                <label style="font-size:0.8rem; font-weight:600; color:var(--text-muted);">Rating:</label>
+                <select name="rating" class="form-select" style="padding:0.25rem 0.5rem; font-size:0.8rem; width:auto;">
+                  <option value="5">★★★★★ (5 Stars)</option>
+                  <option value="4">★★★★☆ (4 Stars)</option>
+                  <option value="3">★★★☆☆ (3 Stars)</option>
+                  <option value="2">★★☆☆☆ (2 Stars)</option>
+                  <option value="1">★☆☆☆☆ (1 Star)</option>
+                </select>
+              </div>
+              <textarea name="comment" class="form-textarea" placeholder="Share your feedback for this local stall..." style="min-height:55px; font-size:0.825rem;" required></textarea>
+              <button type="submit" class="btn btn-outline btn-sm" style="align-self:flex-start; padding:0.35rem 0.85rem; font-size:0.775rem;">
+                Submit Review ⭐
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Digital Payment & Checkout Modal -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal-content" style="max-width: 540px;">
+      <button class="modal-close-btn" id="checkoutModalCloseBtn">✕</button>
+      <div style="padding: 2.25rem;">
+        <span class="badge badge-organic" style="margin-bottom:0.5rem;">Secure Digital Checkout</span>
+        <h2 style="font-size: 1.45rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 0.25rem;">
+          Complete Neighborhood Order
+        </h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+          Direct farm-to-table transaction with zero middleman markups.
+        </p>
+
+        <form id="checkoutForm">
+          <div class="form-group">
+            <label class="form-label">Your Full Name <span class="req">*</span></label>
+            <input type="text" id="checkoutName" class="form-input" placeholder="e.g. Adarsh Singh" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number for Courier <span class="req">*</span></label>
+            <input type="tel" id="checkoutPhone" class="form-input" placeholder="+91 98765 43210" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Local Delivery Address <span class="req">*</span></label>
+            <textarea id="checkoutAddress" class="form-textarea" placeholder="Flat No., Building, Street Name, Landmark" style="min-height:75px;" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Digital Payment Method <span class="req">*</span></label>
+            <div style="display:flex; flex-direction:column; gap:0.5rem; margin-top:0.35rem;">
+              <label class="filter-checkbox-label" style="background:var(--bg-subtle); padding:0.6rem 0.85rem; border-radius:var(--radius-sm);">
+                <input type="radio" name="paymentMethod" value="UPI / QR Code" checked>
+                <span>📱 <strong>Instant UPI / QR Code</strong> (Google Pay, PhonePe, Paytm)</span>
+              </label>
+              <label class="filter-checkbox-label" style="background:var(--bg-subtle); padding:0.6rem 0.85rem; border-radius:var(--radius-sm);">
+                <input type="radio" name="paymentMethod" value="Credit/Debit Card">
+                <span>💳 <strong>Credit or Debit Card</strong> (Visa, Mastercard, RuPay)</span>
+              </label>
+              <label class="filter-checkbox-label" style="background:var(--bg-subtle); padding:0.6rem 0.85rem; border-radius:var(--radius-sm);">
+                <input type="radio" name="paymentMethod" value="Cash on Delivery">
+                <span>💵 <strong>Cash on Delivery (COD)</strong> upon local courier arrival</span>
+              </label>
+            </div>
+          </div>
+
+          <div style="background:var(--bg-body); border:1px dashed var(--border); border-radius:var(--radius-md); padding:1rem; margin:1.25rem 0; font-size:0.875rem;">
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.3rem;"><span>Subtotal:</span><strong id="checkoutSummarySubtotal">/bin/zsh.00</strong></div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.3rem; color:var(--accent);"><span>Discount:</span><strong id="checkoutSummaryDiscount">-/bin/zsh.00</strong></div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.3rem;"><span>Neighborhood Delivery:</span><strong id="checkoutSummaryDelivery">/bin/zsh.00</strong></div>
+            <div style="display:flex; justify-content:space-between; font-size:1.1rem; font-weight:800; color:var(--primary-dark); padding-top:0.4rem; border-top:1px solid var(--border);">
+              <span>Final Total:</span><span id="checkoutSummaryTotal">/bin/zsh.00</span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+            Place Order & Dispatch Courier ➔
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Tracking Modal -->
+  <div class="modal-overlay" id="orderTrackingModal">
+    <div class="modal-content" style="max-width: 580px;">
+      <button class="modal-close-btn" id="trackModalCloseBtn">✕</button>
+      <div style="padding: 2.25rem;">
+        <span class="badge badge-organic" style="margin-bottom:0.5rem;">Live Courier Tracking</span>
+        <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 0.25rem;">
+          Order Status: <span id="trackOrderId">TS-1081</span>
+        </h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+          Placed on <span id="trackOrderDate">Nov 4, 2026</span> • Estimated Arrival: <strong id="trackEta" style="color:var(--primary);">Within 25 mins</strong>
+        </p>
+
+        <div style="display:flex; justify-content:space-between; position:relative; margin-bottom:2rem; padding:0 0.5rem;">
+          <div style="position:absolute; top:14px; left:20px; right:20px; height:4px; background:var(--border); z-index:1;"></div>
+          <div class="track-step completed" style="display:flex; flex-direction:column; align-items:center; position:relative; z-index:2; gap:0.3rem;">
+            <div style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700;">✓</div>
+            <span style="font-size:0.75rem; font-weight:700; color:var(--primary-dark);">Placed</span>
+          </div>
+          <div class="track-step completed" style="display:flex; flex-direction:column; align-items:center; position:relative; z-index:2; gap:0.3rem;">
+            <div style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700;">✓</div>
+            <span style="font-size:0.75rem; font-weight:700; color:var(--primary-dark);">Preparing</span>
+          </div>
+          <div class="track-step completed" style="display:flex; flex-direction:column; align-items:center; position:relative; z-index:2; gap:0.3rem;">
+            <div style="width:30px; height:30px; border-radius:50%; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700;">🚲</div>
+            <span style="font-size:0.75rem; font-weight:700; color:var(--accent);">On the Way</span>
+          </div>
+          <div class="track-step" style="display:flex; flex-direction:column; align-items:center; position:relative; z-index:2; gap:0.3rem;">
+            <div style="width:30px; height:30px; border-radius:50%; background:#e5e7eb; color:#6b7280; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700;">4</div>
+            <span style="font-size:0.75rem; font-weight:700; color:#6b7280;">Delivered</span>
+          </div>
+        </div>
+
+        <div style="background:var(--bg-subtle); border-radius:var(--radius-md); padding:1.25rem; font-size:0.875rem; display:flex; flex-direction:column; gap:0.6rem; margin-bottom:1.5rem;">
+          <div><strong>Recipient: </strong><span id="trackCustomer">Aarav Sharma</span></div>
+          <div><strong>Delivery Address: </strong><span id="trackAddress">Green Valley Apt, West End</span></div>
+          <div><strong>Courier Partner: </strong><span id="trackCourier">Vikram (Eco Bike #12)</span></div>
+          <div><strong>Total Order Bill: </strong><span id="trackTotal">.42</span></div>
+        </div>
+
+        <div style="display:flex; gap:0.5rem;">
+          <input type="text" id="trackOrderSearchInput" placeholder="Enter other Order ID (e.g. TS-1080)" class="form-input" style="flex-grow:1; font-size:0.85rem;">
+          <button id="trackLookupBtn" class="btn btn-primary btn-sm">Lookup 🔍</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Price Comparison Floating Button & Modal -->
+  <button id="comparisonFloatPill" style="display:none; position:fixed; bottom:2rem; left:2rem; z-index:900; background:var(--primary-dark); color:#fff; padding:0.75rem 1.35rem; border-radius:var(--radius-full); box-shadow:var(--shadow-lg); font-weight:700; font-size:0.875rem; align-items:center; gap:0.5rem; border:2px solid var(--primary-light); cursor:pointer;">
+    <span>⚖️ Compare Items (<span id="comparisonCount">0</span>)</span>
+  </button>
+
+  <div class="modal-overlay" id="comparisonModal">
+    <div class="modal-content" style="max-width: 860px;">
+      <button class="modal-close-btn" id="compModalCloseBtn">✕</button>
+      <div style="padding: 2.25rem;">
+        <span class="badge badge-artisan" style="margin-bottom:0.5rem;">Side-by-Side Comparison</span>
+        <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 0.25rem;">
+          Compare Local Vendor Items
+        </h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+          Compare prices per unit, stall distance, certifications, and customer ratings.
+        </p>
+        <div id="comparisonTableContainer"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Anchor -->
+  <div class="toast-container"></div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Col -->
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-icon">🌿</div>
+            <div>Town<span class="highlight">Square</span></div>
+          </a>
+          <p class="footer-bio">
+            TownSquare is an online cooperative marketplace designed specifically for neighborhood small vendors, organic farmers, bakers, and artisans.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="Instagram">📸</a>
+            <a href="#" class="social-link" aria-label="Facebook">📘</a>
+            <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4>Explore Market</h4>
+          <ul class="footer-links">
+            <li><a href="shop.html?category=produce">Organic Produce</a></li>
+            <li><a href="shop.html?category=bakery">Artisan Bakery</a></li>
+            <li><a href="shop.html?category=pantry">Raw Honey & Preserves</a></li>
+            <li><a href="shop.html?category=crafts">Pottery & Handcrafts</a></li>
+            <li><a href="shop.html?category=living">Eco Home & Wellness</a></li>
+          </ul>
+        </div>
+
+        <!-- Vendor Links -->
+        <div class="footer-col">
+          <h4>Small Vendors</h4>
+          <ul class="footer-links">
+            <li><a href="vendors.html">Vendor Directory</a></li>
+            <li><a href="join-vendor.html">Apply for a Stall</a></li>
+            <li><a href="join-vendor.html#pricing">Platform Fee Structure</a></li>
+            <li><a href="join-vendor.html#faq">Vendor FAQs</a></li>
+            <li><a href="join-vendor.html#contact">Stall Support Desk</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter Col -->
+        <div class="footer-col">
+          <h4>Neighborhood Harvest Club</h4>
+          <p style="font-size:0.875rem; color:#9cb2a6; margin-bottom:1rem;">
+            Get weekly updates on what’s freshly harvested each Friday and seasonal stall specials.
+          </p>
+          <form class="newsletter-form">
+            <div class="newsletter-input-group">
+              <input type="email" placeholder="Your neighborhood email" required>
+              <button type="submit">Join</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 TownSquare Market. Built for Independent Small Vendors. CSE326 Web Technologies Project.</p>
+        <p>100% Carbon-Neutral Local Logistics • Verified Food Safety</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

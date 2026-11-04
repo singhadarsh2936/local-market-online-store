@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketplace | TownSquare Local Market</title>
+  <meta name="description" content="Browse fresh organic produce, woodfired bakery goods, pure raw honey, handmade ceramics, and botanical soaps from local small businesses.">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥬</text></svg>">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container">
+      <span>🚚 <span class="highlight">Free Neighborhood Delivery</span> on orders above $35 • Fresh morning harvest direct to your kitchen!</span>
+    </div>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+          <div class="logo-icon">🌿</div>
+          <div>Town<span class="highlight">Square</span></div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="nav-menu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="shop.html" class="nav-link active">Marketplace</a>
+          <a href="vendors.html" class="nav-link">Local Stalls</a>
+          <a href="join-vendor.html" class="nav-link">Become a Vendor</a>
+          <a href="dashboard.html" class="nav-link">Admin Portal</a>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <!-- Wishlist Button -->
+          <a href="shop.html" class="action-btn" aria-label="Favorites list">
+            🤍
+            <span class="action-badge header-wishlist-badge" style="display:none;">0</span>
+          </a>
+
+          <!-- Cart Button -->
+          <button id="openCartBtn" class="action-btn" aria-label="Open shopping basket">
+            🧺
+            <span class="action-badge header-cart-badge" style="display:none;">0</span>
+          </button>
+
+          <!-- Sell with us CTA button -->
+          <button id="openTrackOrderBtn" class="btn btn-outline btn-sm" style="font-size:0.8rem; padding:0.45rem 0.85rem;">
+            🚚 Track Order
+          </button>
+          <a href="join-vendor.html" class="btn btn-primary btn-sm vendor-cta-btn">
+            + Open Stall
+          </a>
+
+          <!-- Mobile Toggle -->
+          <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+            ☰
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header / Breadcrumbs -->
+  <section class="page-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span style="color:var(--text-main); font-weight:600;">Marketplace Catalog</span>
+      </div>
+      <h1 class="section-title" style="margin-bottom: 0.5rem;">Neighborhood Market Aisles</h1>
+      <p class="section-desc">Handcrafted food, organic produce, and artisanal homeware from independent neighborhood creators.</p>
+    </div>
+  </section>
+
+  <!-- Main Shop Layout -->
+  <main class="container">
+    <div class="shop-layout">
+      <!-- Sidebar Filters -->
+      <aside class="filters-sidebar">
+        <!-- Live Search -->
+        <div class="filter-group">
+          <h4 class="filter-title">Keyword Search</h4>
+          <div style="position:relative;">
+            <input type="text" id="shopSearchInput" class="form-input" placeholder="e.g. Sourdough, Honey..." style="padding-left: 2.2rem; font-size: 0.875rem;">
+            <span style="position:absolute; left:0.75rem; top:50%; transform:translateY(-50%); color:var(--text-light);">🔍</span>
+          </div>
+        </div>
+
+        <!-- Categories Filter -->
+        <div class="filter-group">
+          <h4 class="filter-title">Categories</h4>
+          <div class="filter-options">
+            <div class="filter-option category-filter-item active" data-category="all">
+              <span>All Specialties</span>
+              <span>12</span>
+            </div>
+            <div class="filter-option category-filter-item" data-category="produce">
+              <span>Organic Produce</span>
+              <span>3</span>
+            </div>
+            <div class="filter-option category-filter-item" data-category="bakery">
+              <span>Artisan Bakery</span>
+              <span>2</span>
+            </div>
+            <div class="filter-option category-filter-item" data-category="pantry">
+              <span>Pantry & Preserves</span>
+              <span>3</span>
+            </div>
+            <div class="filter-option category-filter-item" data-category="crafts">
+              <span>Handmade Crafts</span>
+              <span>2</span>
+            </div>
+            <div class="filter-option category-filter-item" data-category="living">
+              <span>Home & Wellness</span>
+              <span>2</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Max Price Slider -->
+        <div class="filter-group">
+          <h4 class="filter-title">
+            <span>Max Price</span>
+            <span id="maxPriceDisplay" style="color: var(--primary); font-weight:800;">$30</span>
+          </h4>
+          <div class="price-range-wrap">
+            <input type="range" id="priceRange" min="3" max="30" step="1" value="30">
+            <div class="price-values">
+              <span>$3</span>
+              <span>$15</span>
+              <span>$30</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badges & Quality Filters -->
+        <div class="filter-group">
+          <h4 class="filter-title">Badges & Attributes</h4>
+          <div class="filter-options">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="specialty" value="organic">
+              <span>100% Organic Certified</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="specialty" value="artisan">
+              <span>Artisan & Handcrafted</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="specialty" value="best">
+              <span>Best Seller / Special</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="specialty" value="vegan">
+              <span>Eco / Vegan Friendly</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Filter by Individual Local Vendor -->
+        <div class="filter-group">
+          <h4 class="filter-title">Local Vendor Stalls</h4>
+          <div class="filter-options">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="vendor" value="Mama Rosa's Hearth Bakery">
+              <span>Mama Rosa's Bakery</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="vendor" value="Sunbeam Organic Farm">
+              <span>Sunbeam Organic Farm</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="vendor" value="Hometown Apiary & Honey">
+              <span>Hometown Honey Apiary</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="vendor" value="Copper & Clay Pottery">
+              <span>Copper & Clay Ceramics</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="vendor" value="Valley View Grove">
+              <span>Valley View Grove</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="vendor" value="Willow Creek Herbals">
+              <span>Willow Creek Herbals</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Reset Button -->
+        <button id="clearFiltersBtn" class="btn-clear-filters">
+          Reset All Filters ✕
+        </button>
+      </aside>
+
+      <!-- Shop Main Content -->
+      <section class="shop-main">
+        <!-- Top Controls Bar -->
+        <div class="shop-controls">
+          <div class="results-count">
+            Showing <strong id="totalResultsCount">12 items</strong> from neighborhood stalls
+          </div>
+
+          <div class="controls-right">
+            <label for="sortSelect" style="font-size:0.85rem; font-weight:600; color:var(--text-muted);">Sort by:</label>
+            <select id="sortSelect" class="sort-select">
+              <option value="featured">Featured / Newest</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Highest Rated</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Active Filter Chips -->
+        <div class="active-chips-bar" id="activeChipsContainer" style="display: none;">
+          <!-- Dynamically injected by shop.js -->
+        </div>
+
+        <!-- Products Grid Container -->
+        <div class="products-grid" id="shopProductsGrid">
+          <!-- Populated dynamically via shop.js -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Slide-Out Shopping Basket Drawer -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay">
+    <div class="cart-drawer">
+      <div class="cart-header">
+        <h3 class="cart-title">
+          <span>🧺</span> Your Market Basket
+        </h3>
+        <button class="cart-close-btn" id="closeCartBtn" aria-label="Close basket">✕</button>
+      </div>
+
+      <div class="cart-items-container" id="cartItemsContainer">
+        <!-- Rendered by main.js -->
+      </div>
+
+      <div class="cart-footer">
+        <div class="cart-subtotal-row">
+          <span>Items Subtotal:</span>
+          <strong id="cartSubtotal">$0.00</strong>
+        </div>
+        <div class="cart-subtotal-row">
+          <span>Neighborhood Delivery:</span>
+          <span id="cartDelivery" style="color:var(--primary); font-weight:700;">$0.00</span>
+        </div>
+        <div class="cart-total-row">
+          <span>Estimated Total:</span>
+          <span id="cartTotal" style="color:var(--primary-dark);">$0.00</span>
+        </div>
+        <button id="cartCheckoutBtn" class="btn btn-primary btn-checkout">
+          Proceed to Checkout ➔
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick View Product Modal -->
+  <div class="modal-overlay" id="quickViewModal">
+    <div class="modal-content">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">✕</button>
+      <div class="modal-grid">
+        <div class="modal-img-wrap">
+          <img src="" alt="Product view" class="modal-img">
+        </div>
+        <div class="modal-body">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
+            <span class="modal-vendor-tag"></span>
+            <span class="modal-stock-tag" style="font-size:0.8rem; font-weight:700;"></span>
+          </div>
+          <h2 class="modal-title"></h2>
+          <div class="modal-price-rating">
+            <div>
+              <span class="modal-price"></span>
+              <span class="modal-unit" style="font-size: 0.8rem; color:var(--text-muted); margin-left:0.25rem;"></span>
+            </div>
+            <div class="modal-rating-text" style="color: var(--secondary); font-weight:700; font-size:0.9rem;"></div>
+          </div>
+          <p class="modal-description"></p>
+          <div class="modal-vendor-story">
+            <strong>Vendor Heritage: </strong><span class="modal-vendor-story-text"></span>
+          </div>
+          <div class="modal-actions" style="margin-bottom:1.25rem;">
+            <div class="modal-qty">
+              <button id="modalMinus">−</button>
+              <span id="modalQtyVal" class="modal-qty-val">1</span>
+              <button id="modalPlus">+</button>
+            </div>
+            <button class="btn btn-primary modal-add-btn" style="flex-grow:1;">
+              Add to Basket 🛒
+            </button>
+          </div>
+
+          <div style="border-top:1px solid var(--border-light); padding-top:1rem;">
+            <h4 style="font-size:0.9rem; font-weight:700; margin-bottom:0.4rem; color:var(--text-main);">Leave Verified Feedback</h4>
+            <form id="modalReviewForm" style="display:flex; flex-direction:column; gap:0.5rem;">
+              <div style="display:flex; gap:0.5rem; align-items:center;">
+                <label style="font-size:0.8rem; font-weight:600; color:var(--text-muted);">Rating:</label>
+                <select name="rating" class="form-select" style="padding:0.25rem 0.5rem; font-size:0.8rem; width:auto;">
+                  <option value="5">★★★★★ (5 Stars)</option>
+                  <option value="4">★★★★☆ (4 Stars)</option>
+                  <option value="3">★★★☆☆ (3 Stars)</option>
+                  <option value="2">★★☆☆☆ (2 Stars)</option>
+                  <option value="1">★☆☆☆☆ (1 Star)</option>
+                </select>
+              </div>
+              <textarea name="comment" class="form-textarea" placeholder="Share your feedback for this local stall..." style="min-height:55px; font-size:0.825rem;" required></textarea>
+              <button type="submit" class="btn btn-outline btn-sm" style="align-self:flex-start; padding:0.35rem 0.85rem; font-size:0.775rem;">
+                Submit Review ⭐
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Digital Payment & Checkout Modal -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal-content" style="max-width: 540px;">
+      <button class="modal-close-btn" id="checkoutModalCloseBtn">✕</button>
+      <div style="padding: 2.25rem;">
+        <span class="badge badge-organic" style="margin-bottom:0.5rem;">Secure Digital Checkout</span>
+        <h2 style="font-size: 1.45rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 0.25rem;">
+          Complete Neighborhood Order
+        </h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+          Direct farm-to-table transaction with zero middleman markups.
+        </p>
+
+        <form id="checkoutForm">
+          <div class="form-group">
+            <label class="form-label">Your Full Name <span class="req">*</span></label>
+            <input type="text" id="checkoutName" class="form-input" placeholder="e.g. Adarsh Singh" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number for Courier <span class="req">*</span></label>
+            <input type="tel" id="checkoutPhone" class="form-input" placeholder="+91 98765 43210" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Local Delivery Address <span class="req">*</span></label>
+            <textarea id="checkoutAddress" class="form-textarea" placeholder="Flat No., Building, Street Name, Landmark" style="min-height:75px;" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Digital Payment Method <span class="req">*</span></label>
+            <div style="display:flex; flex-direction:column; gap:0.5rem; margin-top:0.35rem;">
+              <label class="filter-checkbox-label" style="background:var(--bg-subtle); padding:0.6rem 0.85rem; border-radius:var(--radius-sm);">
+                <input type="radio" name="paymentMethod" value="UPI / QR Code" checked>
+                <span>📱 <strong>Instant UPI / QR Code</strong> (Google Pay, PhonePe, Paytm)</span>
+              </label>
+              <label class="filter-checkbox-label" style="background:var(--bg-subtle); padding:0.6rem 0.85rem; border-radius:var(--radius-sm);">
+                <input type="radio" name="paymentMethod" value="Credit/Debit Card">
+                <span>💳 <strong>Credit or Debit Card</strong> (Visa, Mastercard, RuPay)</span>
+              </label>
+              <label class="filter-checkbox-label" style="background:var(--bg-subtle); padding:0.6rem 0.85rem; border-radius:var(--radius-sm);">
+                <input type="radio" name="paymentMethod" value="Cash on Delivery">
+                <span>💵 <strong>Cash on Delivery (COD)</strong> upon local courier arrival</span>
+              </label>
+            </div>
+          </div>
+
+          <div style="background:var(--bg-body); border:1px dashed var(--border); border-radius:var(--radius-md); padding:1rem; margin:1.25rem 0; font-size:0.875rem;">
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.3rem;"><span>Subtotal:</span><strong id="checkoutSummarySubtotal">/bin/zsh.00</strong></div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.3rem; color:var(--accent);"><span>Discount:</span><strong id="checkoutSummaryDiscount">-/bin/zsh.00</strong></div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.3rem;"><span>Neighborhood Delivery:</span><strong id="checkoutSummaryDelivery">/bin/zsh.00</strong></div>
+            <div style="display:flex; justify-content:space-between; font-size:1.1rem; font-weight:800; color:var(--primary-dark); padding-top:0.4rem; border-top:1px solid var(--border);"><span style="font-weight:700;">Final Total:</span><span id="checkoutSummaryTotal">/bin/zsh.00</span></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+            Place Order & Dispatch Courier ➔
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Tracking Modal -->
+  <div class="modal-overlay" id="orderTrackingModal">
+    <div class="modal-content" style="max-width: 580px;">
+      <button class="modal-close-btn" id="trackModalCloseBtn">✕</button>
+      <div style="padding: 2.25rem;">
+        <span class="badge badge-organic" style="margin-bottom:0.5rem;">Live Courier Tracking</span>
+        <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 0.25rem;">
+          Order Status: <span id="trackOrderId">TS-1081</span>
+        </h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+          Placed on <span id="trackOrderDate">Nov 4, 2026</span> • Estimated Arrival: <strong id="trackEta" style="color:var(--primary);">Within 25 mins</strong>
+        </p>
+
+        <div style="display:flex; justify-content:space-between; position:relative; margin-bottom:2rem; padding:0 0.5rem;">
+          <div style="position:absolute; top:14px; left:20px; right:20px; height:4px; background:var(--border); z-index:1;"></div>
+          <div class="track-step completed" style="display:flex; flex-direction:column; align-items:center; position:relative; z-index:2; gap:0.3rem;">
+            <div style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700;">✓</div>
+            <span style="font-size:0.75rem; font-weight:700; color:var(--primary-dark);">Placed</span>
+          </div>
+          <div class="track-step completed" style="display:flex; flex-direction:column; align-items:center; position:relative; z-index:2; gap:0.3rem;">
+            <div style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700;">✓</div>
+            <span style="font-size:0.75rem; font-weight:700; color:var(--primary-dark);">Preparing</span>
+          </div>
+          <div class="track-step completed" style="display:flex; flex-direction:column; align-items:center; position:relative; z-index:2; gap:0.3rem;">
+            <div style="width:30px; height:30px; border-radius:50%; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700;">🚲</div>
+            <span style="font-size:0.75rem; font-weight:700; color:var(--accent);">On the Way</span>
+          </div>
+          <div class="track-step" style="display:flex; flex-direction:column; align-items:center; position:relative; z-index:2; gap:0.3rem;">
+            <div style="width:30px; height:30px; border-radius:50%; background:#e5e7eb; color:#6b7280; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700;">4</div>
+            <span style="font-size:0.75rem; font-weight:700; color:#6b7280;">Delivered</span>
+          </div>
+        </div>
+
+        <div style="background:var(--bg-subtle); border-radius:var(--radius-md); padding:1.25rem; font-size:0.875rem; display:flex; flex-direction:column; gap:0.6rem; margin-bottom:1.5rem;">
+          <div><strong>Recipient: </strong><span id="trackCustomer">Aarav Sharma</span></div>
+          <div><strong>Delivery Address: </strong><span id="trackAddress">Green Valley Apt, West End</span></div>
+          <div><strong>Courier Partner: </strong><span id="trackCourier">Vikram (Eco Bike #12)</span></div>
+          <div><strong>Total Order Bill: </strong><span id="trackTotal">.42</span></div>
+        </div>
+
+        <div style="display:flex; gap:0.5rem;">
+          <input type="text" id="trackOrderSearchInput" placeholder="Enter other Order ID (e.g. TS-1080)" class="form-input" style="flex-grow:1; font-size:0.85rem;">
+          <button id="trackLookupBtn" class="btn btn-primary btn-sm">Lookup 🔍</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Price Comparison Floating Button & Modal -->
+  <button id="comparisonFloatPill" style="display:none; position:fixed; bottom:2rem; left:2rem; z-index:900; background:var(--primary-dark); color:#fff; padding:0.75rem 1.35rem; border-radius:var(--radius-full); box-shadow:var(--shadow-lg); font-weight:700; font-size:0.875rem; align-items:center; gap:0.5rem; border:2px solid var(--primary-light); cursor:pointer;">
+    <span>⚖️ Compare Items (<span id="comparisonCount">0</span>)</span>
+  </button>
+
+  <div class="modal-overlay" id="comparisonModal">
+    <div class="modal-content" style="max-width: 860px;">
+      <button class="modal-close-btn" id="compModalCloseBtn">✕</button>
+      <div style="padding: 2.25rem;">
+        <span class="badge badge-artisan" style="margin-bottom:0.5rem;">Side-by-Side Comparison</span>
+        <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 0.25rem;">
+          Compare Local Vendor Items
+        </h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+          Compare prices per unit, stall distance, certifications, and customer ratings.
+        </p>
+        <div id="comparisonTableContainer"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Anchor -->
+  <div class="toast-container"></div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-icon">🌿</div>
+            <div>Town<span class="highlight">Square</span></div>
+          </a>
+          <p class="footer-bio">
+            TownSquare is an online cooperative marketplace designed specifically for neighborhood small vendors, organic farmers, bakers, and artisans.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="Instagram">📸</a>
+            <a href="#" class="social-link" aria-label="Facebook">📘</a>
+            <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore Market</h4>
+          <ul class="footer-links">
+            <li><a href="shop.html?category=produce">Organic Produce</a></li>
+            <li><a href="shop.html?category=bakery">Artisan Bakery</a></li>
+            <li><a href="shop.html?category=pantry">Raw Honey & Preserves</a></li>
+            <li><a href="shop.html?category=crafts">Pottery & Handcrafts</a></li>
+            <li><a href="shop.html?category=living">Eco Home & Wellness</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Small Vendors</h4>
+          <ul class="footer-links">
+            <li><a href="vendors.html">Vendor Directory</a></li>
+            <li><a href="join-vendor.html">Apply for a Stall</a></li>
+            <li><a href="join-vendor.html#pricing">Platform Fee Structure</a></li>
+            <li><a href="join-vendor.html#faq">Vendor FAQs</a></li>
+            <li><a href="join-vendor.html#contact">Stall Support Desk</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Neighborhood Harvest Club</h4>
+          <p style="font-size:0.875rem; color:#9cb2a6; margin-bottom:1rem;">
+            Get weekly updates on what’s freshly harvested each Friday and seasonal stall specials.
+          </p>
+          <form class="newsletter-form">
+            <div class="newsletter-input-group">
+              <input type="email" placeholder="Your neighborhood email" required>
+              <button type="submit">Join</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 TownSquare Market. Built for Independent Small Vendors. CSE326 Web Technologies Project.</p>
+        <p>100% Carbon-Neutral Local Logistics • Verified Food Safety</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>

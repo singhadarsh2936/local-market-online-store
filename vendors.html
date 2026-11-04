@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Stalls & Vendors Directory | TownSquare Market</title>
+  <meta name="description" content="Discover verified neighborhood farmers, bakers, herbalists, and potters. Learn their stories and shop directly from their stalls.">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥬</text></svg>">
+  <style>
+    .vendor-cat-pill {
+      padding: 0.5rem 1.2rem;
+      border-radius: var(--radius-full);
+      background: #ffffff;
+      border: 1px solid var(--border);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    .vendor-cat-pill:hover,
+    .vendor-cat-pill.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container">
+      <span>🚚 <span class="highlight">Free Neighborhood Delivery</span> on orders above $35 • Know the hands that feed and craft your community!</span>
+    </div>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+          <div class="logo-icon">🌿</div>
+          <div>Town<span class="highlight">Square</span></div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="nav-menu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="shop.html" class="nav-link">Marketplace</a>
+          <a href="vendors.html" class="nav-link active">Local Stalls</a>
+          <a href="join-vendor.html" class="nav-link">Become a Vendor</a>
+          <a href="dashboard.html" class="nav-link">Admin Portal</a>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <a href="shop.html" class="action-btn" aria-label="Favorites list">
+            🤍
+            <span class="action-badge header-wishlist-badge" style="display:none;">0</span>
+          </a>
+
+          <button id="openCartBtn" class="action-btn" aria-label="Open shopping basket">
+            🧺
+            <span class="action-badge header-cart-badge" style="display:none;">0</span>
+          </button>
+
+          <button id="openTrackOrderBtn" class="btn btn-outline btn-sm" style="font-size:0.8rem; padding:0.45rem 0.85rem;">🚚 Track Order</button>
+          <a href="join-vendor.html" class="btn btn-primary btn-sm vendor-cta-btn">+ Open Stall</a>
+
+          <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+            ☰
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span style="color:var(--text-main); font-weight:600;">Small Vendor Directory</span>
+      </div>
+      <h1 class="section-title" style="margin-bottom: 0.5rem;">Meet Your Neighborhood Stalls</h1>
+      <p class="section-desc">Every business here is independently owned, locally based, and dedicated to craft quality.</p>
+    </div>
+  </section>
+
+  <!-- Vendors Main Section -->
+  <main class="container" style="padding-top: 3rem; padding-bottom: 5rem;">
+    <!-- Search & Filter Controls -->
+    <div style="background:#ffffff; border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.5rem; margin-bottom:3rem; box-shadow:var(--shadow-sm);">
+      <div style="display:flex; flex-direction:column; gap:1.25rem;">
+        <!-- Vendor Search Input -->
+        <div style="position:relative; max-width:600px; width:100%;">
+          <input type="text" id="vendorSearchInput" class="form-input" placeholder="Search stall by name, craft, or area (e.g. Sourdough, Riverdale, Honey)..." style="padding-left: 2.5rem;">
+          <span style="position:absolute; left:1rem; top:50%; transform:translateY(-50%); color:var(--text-light); font-size:1.1rem;">🔍</span>
+        </div>
+
+        <!-- Vendor Category Filters -->
+        <div style="display:flex; flex-wrap:wrap; gap:0.6rem; align-items:center;">
+          <span style="font-size:0.85rem; font-weight:700; color:var(--text-main); margin-right:0.4rem;">Browse Crafts:</span>
+          <button class="vendor-cat-pill active" data-category="all">All Stalls (6)</button>
+          <button class="vendor-cat-pill" data-category="bakery">🥖 Artisan Bakery</button>
+          <button class="vendor-cat-pill" data-category="produce">🥦 Organic Produce</button>
+          <button class="vendor-cat-pill" data-category="pantry">🍯 Pantry & Preserves</button>
+          <button class="vendor-cat-pill" data-category="crafts">🏺 Handmade Crafts</button>
+          <button class="vendor-cat-pill" data-category="wellness">🧼 Home & Wellness</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vendors Grid Container (Rendered by vendors.js) -->
+    <div class="vendors-grid" id="vendorsDirectoryGrid">
+      <!-- Populated dynamically via vendors.js -->
+    </div>
+
+    <!-- Vendor Spotlight Trust Banner -->
+    <section style="margin-top: 5rem; background: var(--bg-subtle); border-radius: var(--radius-lg); padding: 3rem; border: 1px solid var(--border);">
+      <div style="text-align:center; max-width:720px; margin:0 auto 2.5rem;">
+        <span class="section-tag">Direct Community Impact</span>
+        <h2 class="section-title" style="font-size:2rem;">Why Buying Directly from Stalls Matters</h2>
+        <p class="section-desc">When you spend $100 at a local market stall versus a supermarket chain, $68 remains directly inside your local community economy.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-box" style="background:#fff;">
+          <div class="feature-icon-wrap" style="width:3.5rem; height:3.5rem; font-size:1.5rem;">🌾</div>
+          <h4 class="feature-title">Preserving Heritage Crops</h4>
+          <p class="feature-desc">Small growers cultivate diverse heirloom species that commercial monoculture farms cannot afford to plant.</p>
+        </div>
+
+        <div class="feature-box" style="background:#fff;">
+          <div class="feature-icon-wrap" style="width:3.5rem; height:3.5rem; font-size:1.5rem;">🥖</div>
+          <h4 class="feature-title">Pure Clean Ingredients</h4>
+          <p class="feature-desc">No preservatives, bleach, or shelf-life chemicals needed when goods are baked and delivered the exact same morning.</p>
+        </div>
+
+        <div class="feature-box" style="background:#fff;">
+          <div class="feature-icon-wrap" style="width:3.5rem; height:3.5rem; font-size:1.5rem;">🎨</div>
+          <h4 class="feature-title">True Creative Freedom</h4>
+          <p class="feature-desc">Artisans retain full creative ownership, crafting unique bespoke home and dinnerware that lasts a lifetime.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Want to open a stall banner -->
+    <div class="vendor-banner-cta" style="border-radius: var(--radius-lg); margin-top: 4rem;">
+      <div class="container">
+        <div class="banner-cta-inner">
+          <div class="banner-cta-content">
+            <h2 class="banner-cta-title">Are you a local creator or producer?</h2>
+            <p class="banner-cta-desc">
+              Whether you bake in a licensed cottage kitchen or harvest fresh honey in the foothills, TownSquare gives you a turnkey digital storefront, payments, and green local delivery.
+            </p>
+            <a href="join-vendor.html" class="btn btn-accent btn-lg">Apply for Your Stall Today ➔</a>
+          </div>
+          <div>
+            <a href="join-vendor.html" class="btn btn-primary" style="background:#fff; color:var(--primary-dark); font-weight:700;">
+              View Vendor Handbook
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Slide-Out Shopping Basket Drawer -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay">
+    <div class="cart-drawer">
+      <div class="cart-header">
+        <h3 class="cart-title">
+          <span>🧺</span> Your Market Basket
+        </h3>
+        <button class="cart-close-btn" id="closeCartBtn" aria-label="Close basket">✕</button>
+      </div>
+
+      <div class="cart-items-container" id="cartItemsContainer">
+        <!-- Rendered by main.js -->
+      </div>
+
+      <div class="cart-footer">
+        <div class="cart-subtotal-row">
+          <span>Items Subtotal:</span>
+          <strong id="cartSubtotal">$0.00</strong>
+        </div>
+        <div class="cart-subtotal-row">
+          <span>Neighborhood Delivery:</span>
+          <span id="cartDelivery" style="color:var(--primary); font-weight:700;">$0.00</span>
+        </div>
+        <div class="cart-total-row">
+          <span>Estimated Total:</span>
+          <span id="cartTotal" style="color:var(--primary-dark);">$0.00</span>
+        </div>
+        <button id="cartCheckoutBtn" class="btn btn-primary btn-checkout">
+          Proceed to Checkout ➔
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Digital Payment & Checkout Modal -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal-content" style="max-width: 540px;">
+      <button class="modal-close-btn" id="checkoutModalCloseBtn">✕</button>
+      <div style="padding: 2.25rem;">
+        <span class="badge badge-organic" style="margin-bottom:0.5rem;">Secure Digital Checkout</span>
+        <h2 style="font-size: 1.45rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 0.25rem;">Complete Neighborhood Order</h2>
+        <form id="checkoutForm">
+          <div class="form-group">
+            <label class="form-label">Your Full Name <span class="req">*</span></label>
+            <input type="text" id="checkoutName" class="form-input" placeholder="e.g. Adarsh Singh" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number for Courier <span class="req">*</span></label>
+            <input type="tel" id="checkoutPhone" class="form-input" placeholder="+91 98765 43210" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Local Delivery Address <span class="req">*</span></label>
+            <textarea id="checkoutAddress" class="form-textarea" placeholder="Flat No., Building, Street Name" style="min-height:75px;" required></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Digital Payment Method <span class="req">*</span></label>
+            <div style="display:flex; flex-direction:column; gap:0.5rem; margin-top:0.35rem;">
+              <label class="filter-checkbox-label" style="background:var(--bg-subtle); padding:0.6rem 0.85rem; border-radius:var(--radius-sm);">
+                <input type="radio" name="paymentMethod" value="UPI / QR Code" checked>
+                <span>📱 <strong>Instant UPI / QR Code</strong></span>
+              </label>
+              <label class="filter-checkbox-label" style="background:var(--bg-subtle); padding:0.6rem 0.85rem; border-radius:var(--radius-sm);">
+                <input type="radio" name="paymentMethod" value="Credit/Debit Card">
+                <span>💳 <strong>Credit or Debit Card</strong></span>
+              </label>
+              <label class="filter-checkbox-label" style="background:var(--bg-subtle); padding:0.6rem 0.85rem; border-radius:var(--radius-sm);">
+                <input type="radio" name="paymentMethod" value="Cash on Delivery">
+                <span>💵 <strong>Cash on Delivery (COD)</strong></span>
+              </label>
+            </div>
+          </div>
+          <div style="background:var(--bg-body); border:1px dashed var(--border); border-radius:var(--radius-md); padding:1rem; margin:1.25rem 0; font-size:0.875rem;">
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.3rem;"><span>Subtotal:</span><strong id="checkoutSummarySubtotal">/bin/zsh.00</strong></div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.3rem; color:var(--accent);"><span>Discount:</span><strong id="checkoutSummaryDiscount">-/bin/zsh.00</strong></div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.3rem;"><span>Delivery:</span><strong id="checkoutSummaryDelivery">/bin/zsh.00</strong></div>
+            <div style="display:flex; justify-content:space-between; font-size:1.1rem; font-weight:800; color:var(--primary-dark); padding-top:0.4rem; border-top:1px solid var(--border);"><span>Final Total:</span><span id="checkoutSummaryTotal">/bin/zsh.00</span></div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Place Order & Dispatch Courier ➔</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Tracking Modal -->
+  <div class="modal-overlay" id="orderTrackingModal">
+    <div class="modal-content" style="max-width: 580px;">
+      <button class="modal-close-btn" id="trackModalCloseBtn">✕</button>
+      <div style="padding: 2.25rem;">
+        <span class="badge badge-organic" style="margin-bottom:0.5rem;">Live Courier Tracking</span>
+        <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 0.25rem;">Order Status: <span id="trackOrderId">TS-1081</span></h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Placed on <span id="trackOrderDate">Nov 4, 2026</span> • Arrival: <strong id="trackEta" style="color:var(--primary);">Within 25 mins</strong></p>
+        <div style="display:flex; justify-content:space-between; position:relative; margin-bottom:2rem; padding:0 0.5rem;">
+          <div style="position:absolute; top:14px; left:20px; right:20px; height:4px; background:var(--border); z-index:1;"></div>
+          <div class="track-step completed" style="display:flex; flex-direction:column; align-items:center; position:relative; z-index:2; gap:0.3rem;"><div style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700;">✓</div><span style="font-size:0.75rem; font-weight:700; color:var(--primary-dark);">Placed</span></div>
+          <div class="track-step completed" style="display:flex; flex-direction:column; align-items:center; position:relative; z-index:2; gap:0.3rem;"><div style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700;">✓</div><span style="font-size:0.75rem; font-weight:700; color:var(--primary-dark);">Preparing</span></div>
+          <div class="track-step completed" style="display:flex; flex-direction:column; align-items:center; position:relative; z-index:2; gap:0.3rem;"><div style="width:30px; height:30px; border-radius:50%; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700;">🚲</div><span style="font-size:0.75rem; font-weight:700; color:var(--accent);">On Way</span></div>
+          <div class="track-step" style="display:flex; flex-direction:column; align-items:center; position:relative; z-index:2; gap:0.3rem;"><div style="width:30px; height:30px; border-radius:50%; background:#e5e7eb; color:#6b7280; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700;">4</div><span style="font-size:0.75rem; font-weight:700; color:#6b7280;">Delivered</span></div>
+        </div>
+        <div style="background:var(--bg-subtle); border-radius:var(--radius-md); padding:1.25rem; font-size:0.875rem; display:flex; flex-direction:column; gap:0.6rem; margin-bottom:1.5rem;">
+          <div><strong>Recipient: </strong><span id="trackCustomer">Aarav Sharma</span></div>
+          <div><strong>Delivery Address: </strong><span id="trackAddress">Green Valley Apt, West End</span></div>
+          <div><strong>Courier: </strong><span id="trackCourier">Vikram (Eco Bike #12)</span></div>
+          <div><strong>Total: </strong><span id="trackTotal">.42</span></div>
+        </div>
+        <div style="display:flex; gap:0.5rem;">
+          <input type="text" id="trackOrderSearchInput" placeholder="Enter other Order ID (e.g. TS-1080)" class="form-input" style="flex-grow:1; font-size:0.85rem;">
+          <button id="trackLookupBtn" class="btn btn-primary btn-sm">Lookup 🔍</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Anchor -->
+  <div class="toast-container"></div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-icon">🌿</div>
+            <div>Town<span class="highlight">Square</span></div>
+          </a>
+          <p class="footer-bio">
+            TownSquare is an online cooperative marketplace designed specifically for neighborhood small vendors, organic farmers, bakers, and artisans.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="Instagram">📸</a>
+            <a href="#" class="social-link" aria-label="Facebook">📘</a>
+            <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore Market</h4>
+          <ul class="footer-links">
+            <li><a href="shop.html?category=produce">Organic Produce</a></li>
+            <li><a href="shop.html?category=bakery">Artisan Bakery</a></li>
+            <li><a href="shop.html?category=pantry">Raw Honey & Preserves</a></li>
+            <li><a href="shop.html?category=crafts">Pottery & Handcrafts</a></li>
+            <li><a href="shop.html?category=living">Eco Home & Wellness</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Small Vendors</h4>
+          <ul class="footer-links">
+            <li><a href="vendors.html">Vendor Directory</a></li>
+            <li><a href="join-vendor.html">Apply for a Stall</a></li>
+            <li><a href="join-vendor.html#pricing">Platform Fee Structure</a></li>
+            <li><a href="join-vendor.html#faq">Vendor FAQs</a></li>
+            <li><a href="join-vendor.html#contact">Stall Support Desk</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Neighborhood Harvest Club</h4>
+          <p style="font-size:0.875rem; color:#9cb2a6; margin-bottom:1rem;">
+            Get weekly updates on what’s freshly harvested each Friday and seasonal stall specials.
+          </p>
+          <form class="newsletter-form">
+            <div class="newsletter-input-group">
+              <input type="email" placeholder="Your neighborhood email" required>
+              <button type="submit">Join</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 TownSquare Market. Built for Independent Small Vendors. CSE326 Web Technologies Project.</p>
+        <p>100% Carbon-Neutral Local Logistics • Verified Food Safety</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/vendors.js"></script>
+</body>
+</html>

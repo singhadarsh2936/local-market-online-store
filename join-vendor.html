@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Become a Vendor & Stall Support | TownSquare Market</title>
+  <meta name="description" content="Open your independent local stall on TownSquare. Connect with conscious neighborhood buyers with 0% commission for 60 days, built-in courier dispatch, and weekly payouts.">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥬</text></svg>">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container">
+      <span>🎉 <span class="highlight">New Vendor Special</span>: 0% Platform Commission for your first 60 days • Fast 48-hour onboarding!</span>
+    </div>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+          <div class="logo-icon">🌿</div>
+          <div>Town<span class="highlight">Square</span></div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="nav-menu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="shop.html" class="nav-link">Marketplace</a>
+          <a href="vendors.html" class="nav-link">Local Stalls</a>
+          <a href="join-vendor.html" class="nav-link active">Become a Vendor</a>
+          <a href="dashboard.html" class="nav-link">Admin Portal</a>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <a href="shop.html" class="action-btn" aria-label="Favorites list">
+            🤍
+            <span class="action-badge header-wishlist-badge" style="display:none;">0</span>
+          </a>
+
+          <button id="openCartBtn" class="action-btn" aria-label="Open shopping basket">
+            🧺
+            <span class="action-badge header-cart-badge" style="display:none;">0</span>
+          </button>
+
+          <button id="openTrackOrderBtn" class="btn btn-outline btn-sm" style="font-size:0.8rem; padding:0.45rem 0.85rem;">🚚 Track Order</button>
+          <a href="#applyForm" class="btn btn-primary btn-sm vendor-cta-btn">Apply Now</a>
+
+          <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+            ☰
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span style="color:var(--text-main); font-weight:600;">Small Vendor Onboarding</span>
+      </div>
+      <h1 class="section-title" style="margin-bottom: 0.5rem;">Sell Your Local Harvest & Handcrafted Goods</h1>
+      <p class="section-desc">Reach thousands of nearby residents who value small-batch quality over mass production.</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container" style="padding-top: 3.5rem; padding-bottom: 5rem;">
+    <!-- 3-Column Vendor Perks Row -->
+    <div class="perks-row">
+      <div class="perk-card">
+        <div class="perk-card-icon">⚡</div>
+        <h3 style="font-size:1.15rem; font-weight:700; margin-bottom:0.5rem; color:var(--text-main);">Zero Upfront Overhead</h3>
+        <p style="font-size:0.875rem; color:var(--text-muted); line-height:1.6;">
+          No booth setup fees, no monthly software subscriptions. Pay zero fees for your first 60 days while building your loyal local audience.
+        </p>
+      </div>
+
+      <div class="perk-card">
+        <div class="perk-card-icon">🚲</div>
+        <h3 style="font-size:1.15rem; font-weight:700; margin-bottom:0.5rem; color:var(--text-main);">Managed Neighborhood Courier</h3>
+        <p style="font-size:0.875rem; color:var(--text-muted); line-height:1.6;">
+          No need to drive around delivering packages yourself. Our eco couriers pick up orders from your stall or home kitchen every morning.
+        </p>
+      </div>
+
+      <div class="perk-card">
+        <div class="perk-card-icon">💳</div>
+        <h3 style="font-size:1.15rem; font-weight:700; margin-bottom:0.5rem; color:var(--text-main);">Direct Weekly Bank Deposits</h3>
+        <p style="font-size:0.875rem; color:var(--text-muted); line-height:1.6;">
+          All customer payments are securely processed through Stripe and deposited directly into your bank account every Tuesday morning.
+        </p>
+      </div>
+    </div>
+
+    <!-- Application Form Container -->
+    <div id="applyForm" class="container-sm" style="margin-bottom: 5rem;">
+      <div class="form-card">
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <span class="section-tag">Step 1 of 2</span>
+          <h2 style="font-family: var(--font-serif); font-size: 2rem; color: var(--primary-dark); margin-bottom: 0.5rem;">
+            Stall Application Form
+          </h2>
+          <p style="font-size: 0.95rem; color: var(--text-muted);">
+            Fill out your small business details below. Our community review board reviews all applications within 48 hours.
+          </p>
+        </div>
+
+        <form id="vendorApplicationForm">
+          <div class="form-grid-2">
+            <!-- Business Name -->
+            <div class="form-group">
+              <label class="form-label" for="bizName">Stall or Business Name <span class="req">*</span></label>
+              <input type="text" id="bizName" class="form-input" placeholder="e.g. Sunny Hill Orchards" required>
+            </div>
+
+            <!-- Artisan / Owner Name -->
+            <div class="form-group">
+              <label class="form-label" for="ownerName">Primary Maker / Owner Name <span class="req">*</span></label>
+              <input type="text" id="ownerName" class="form-input" placeholder="e.g. Sarah Miller" required>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <!-- Email -->
+            <div class="form-group">
+              <label class="form-label" for="email">Contact Email Address <span class="req">*</span></label>
+              <input type="email" id="email" class="form-input" placeholder="sarah@sunnyhill.com" required>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="form-group">
+              <label class="form-label" for="phone">Phone / WhatsApp <span class="req">*</span></label>
+              <input type="tel" id="phone" class="form-input" placeholder="(555) 019-2834" required>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <!-- Primary Category -->
+            <div class="form-group">
+              <label class="form-label" for="category">Primary Craft Specialty <span class="req">*</span></label>
+              <select id="category" class="form-select" required>
+                <option value="">Select your craft category...</option>
+                <option value="produce">Organic Farm Produce & Fruit</option>
+                <option value="bakery">Artisan Bakery & Pastries</option>
+                <option value="pantry">Honey, Jams & Pantry Preserves</option>
+                <option value="crafts">Handmade Ceramics, Pottery & Textiles</option>
+                <option value="living">Eco Soaps, Candles & Wellness</option>
+                <option value="other">Other Small-Batch Goods</option>
+              </select>
+            </div>
+
+            <!-- Neighborhood / Region -->
+            <div class="form-group">
+              <label class="form-label" for="region">Neighborhood / Location <span class="req">*</span></label>
+              <select id="region" class="form-select" required>
+                <option value="">Select your neighborhood...</option>
+                <option value="west-end">West End District</option>
+                <option value="riverdale">Riverdale Valley</option>
+                <option value="downtown">Downtown Arts District</option>
+                <option value="sunny-ridge">Sunny Ridge Foothills</option>
+                <option value="north-hills">North Hills Homestead</option>
+                <option value="other">Within 15 miles radius</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Tell us about craft -->
+          <div class="form-group">
+            <label class="form-label" for="story">Tell Us About Your Goods & Sourcing <span class="req">*</span></label>
+            <textarea id="story" class="form-textarea" placeholder="Describe how your products are made, where you source raw ingredients, and what makes your small stall unique..." required></textarea>
+            <span class="form-helper">Mention certifications (e.g. USDA Organic, Cottage Food Permit, Fair Trade) if applicable.</span>
+          </div>
+
+          <!-- Document / Photo Upload Dropzone -->
+          <div class="form-group">
+            <label class="form-label">Food Permit, Studio License, or Product Showcase</label>
+            <input type="file" id="certUpload" style="display:none;" accept=".pdf,.png,.jpg,.jpeg">
+            <div class="file-dropzone" id="fileDropzone">
+              <div class="dropzone-icon">📁</div>
+              <h5 id="dropzoneFileName" style="font-size:0.95rem; font-weight:700; color:var(--text-main); margin-bottom:0.25rem;">
+                Click to attach Stall Permit or Product Photos
+              </h5>
+              <p style="font-size:0.775rem; color:var(--text-muted);">PDF, PNG, or JPG up to 10MB (Optional for initial application)</p>
+            </div>
+          </div>
+
+          <!-- Terms agreement checkbox -->
+          <div class="form-group" style="margin-top: 1.5rem;">
+            <label class="filter-checkbox-label" style="align-items:flex-start;">
+              <input type="checkbox" required style="margin-top: 0.25rem;">
+              <span style="font-size:0.875rem; color:var(--text-muted); line-height:1.5;">
+                I confirm that all goods listed are produced locally in accordance with municipal small vendor / cottage food safety standards, and I agree to the TownSquare Vendor Partnership Charter.
+              </span>
+            </label>
+          </div>
+
+          <div style="margin-top: 2rem;">
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+              Submit Stall Application ➔
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Pricing Comparison / Fee Structure Table -->
+    <section id="pricing" style="margin-bottom: 5rem;">
+      <div style="text-align: center; max-width: 680px; margin: 0 auto 3rem;">
+        <span class="section-tag">Fair Economics</span>
+        <h2 class="section-title">Transparent, Ethical Pricing</h2>
+        <p class="section-desc">Traditional supermarket distributors take 50–70% of retail margins. TownSquare keeps the profit where it belongs: in your hands.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <!-- Card 1: Starter -->
+        <div style="background:#ffffff; border:1px solid var(--border); border-radius:var(--radius-lg); padding:2.5rem; display:flex; flex-direction:column; box-shadow:var(--shadow-sm); position:relative;">
+          <span class="badge badge-artisan" style="position:absolute; top:1.5rem; right:1.5rem;">Best for New Makers</span>
+          <h3 style="font-size:1.4rem; font-weight:800; color:var(--primary-dark); margin-bottom:0.5rem;">Starter Stall</h3>
+          <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:1.5rem;">Ideal for hobbyists, seasonal growers, and weekend market bakers.</p>
+          <div style="font-size:2.5rem; font-weight:800; color:var(--text-main); margin-bottom:1.5rem;">
+            8% <span style="font-size:1rem; font-weight:500; color:var(--text-muted);">commission per order</span>
+          </div>
+          <ul style="display:flex; flex-direction:column; gap:0.85rem; font-size:0.9rem; color:var(--text-muted); margin-bottom:2rem; flex-grow:1;">
+            <li>✓ First 60 Days: <strong>0% Commission</strong></li>
+            <li>✓ List up to 15 seasonal products</li>
+            <li>✓ Neighborhood courier dispatch included</li>
+            <li>✓ Weekly automated bank payouts</li>
+            <li>✓ Basic vendor analytics dashboard</li>
+          </ul>
+          <a href="#applyForm" class="btn btn-outline" style="width:100%;">Apply for Starter</a>
+        </div>
+
+        <!-- Card 2: Growth -->
+        <div style="background:var(--primary-subtle); border:2px solid var(--primary); border-radius:var(--radius-lg); padding:2.5rem; display:flex; flex-direction:column; box-shadow:var(--shadow-md); position:relative;">
+          <span class="badge badge-organic" style="position:absolute; top:1.5rem; right:1.5rem; background:var(--primary); color:#fff;">Most Popular</span>
+          <h3 style="font-size:1.4rem; font-weight:800; color:var(--primary-dark); margin-bottom:0.5rem;">Artisan Pro Stall</h3>
+          <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:1.5rem;">For full-time independent growers, studio potters, and established bakeries.</p>
+          <div style="font-size:2.5rem; font-weight:800; color:var(--text-main); margin-bottom:1.5rem;">
+            5% <span style="font-size:1rem; font-weight:500; color:var(--text-muted);">commission per order</span>
+          </div>
+          <ul style="display:flex; flex-direction:column; gap:0.85rem; font-size:0.9rem; color:var(--primary-dark); margin-bottom:2rem; flex-grow:1;">
+            <li>✓ First 60 Days: <strong>0% Commission</strong></li>
+            <li>✓ Unlimited product listings & inventory</li>
+            <li>✓ Priority homepage banner spotlight</li>
+            <li>✓ Same-day harvest morning pickup slots</li>
+            <li>✓ Custom branded storefront URL</li>
+            <li>✓ Dedicated stall growth advisor</li>
+          </ul>
+          <a href="#applyForm" class="btn btn-primary" style="width:100%;">Apply for Artisan Pro</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section id="faq" class="faq-section">
+      <div style="text-align: center; max-width: 680px; margin: 0 auto 3rem;">
+        <span class="section-tag">Got Questions?</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-desc">Everything you need to know about setting up your stall and selling locally.</p>
+      </div>
+
+      <div class="faq-list">
+        <!-- FAQ 1 -->
+        <div class="faq-item active">
+          <button class="faq-question">
+            <span>How does local pickup and customer delivery work?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            TownSquare operates a centralized neighborhood courier hub network. Every morning between 7:30 AM and 9:30 AM, our bike and electric van couriers stop by your stall, kitchen, or farm to collect bagged customer orders. We consolidate and deliver them directly to buyers within a 3-hour window in insulated thermal totes.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Do I need a commercial storefront or commercial kitchen?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Not necessarily! For non-hazardous baked goods, jams, honey, and dry goods, most regions permit operations under local Cottage Food regulations. For perishable dairy or meat products, standard state food safety certifications are required. Artisans, potters, and woodworkers need no special licensing beyond basic business registration.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>When and how do I receive my earnings?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Payouts are automated every Tuesday morning via direct bank deposit for all orders fulfilled the previous week. Your vendor portal tracks every order, invoice, and courier timestamp in real time with downloadable tax reports.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I manage my own product stock and holiday hours?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes! Through your intuitive mobile and desktop vendor dashboard, you can adjust daily batch counts with one click. If your sourdough or heirloom tomatoes sell out for the day, simply toggle "Sold Out", and customers cannot place further orders until your next bake or harvest.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What if a customer has an issue or order discrepancy?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            TownSquare provides front-line customer support. If a customer reports a delivery issue or transit damage, our support desk resolves it promptly so you can stay focused on baking, farming, and crafting.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Stall Support Desk Section -->
+    <section id="contact" style="margin-top: 5rem; padding-top: 3.5rem; border-top: 1px solid var(--border);">
+      <div style="text-align: center; max-width: 680px; margin: 0 auto 3rem;">
+        <span class="section-tag">Direct Human Support</span>
+        <h2 class="section-title">Community Stall Support Desk</h2>
+        <p class="section-desc">Have questions about your cottage kitchen permit or batch logistics? Our local vendor coordinators are here to assist.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        <div class="feature-box" style="text-align:left; background:#fff;">
+          <div class="feature-icon-wrap" style="margin:0 0 1rem 0; width:3.5rem; height:3.5rem; font-size:1.5rem;">📍</div>
+          <h4 class="feature-title">Market Headquarters</h4>
+          <p class="feature-desc" style="color:var(--text-muted); font-size:0.9rem;">
+            TownSquare Market Hub<br>
+            428 Artisan Way, Suite 102<br>
+            Downtown Arts District
+          </p>
+        </div>
+
+        <div class="feature-box" style="text-align:left; background:#fff;">
+          <div class="feature-icon-wrap" style="margin:0 0 1rem 0; width:3.5rem; height:3.5rem; font-size:1.5rem;">📞</div>
+          <h4 class="feature-title">Vendor Helpline</h4>
+          <p class="feature-desc" style="color:var(--text-muted); font-size:0.9rem;">
+            Direct Stall Coordinator: <strong>(555) 326-FARM</strong><br>
+            Mon – Sat: 6:00 AM – 6:00 PM<br>
+            Urgent courier support: 24/7 in-app
+          </p>
+        </div>
+
+        <div class="feature-box" style="text-align:left; background:#fff;">
+          <div class="feature-icon-wrap" style="margin:0 0 1rem 0; width:3.5rem; height:3.5rem; font-size:1.5rem;">✉️</div>
+          <h4 class="feature-title">Email Inquiries</h4>
+          <p class="feature-desc" style="color:var(--text-muted); font-size:0.9rem;">
+            New Stalls: <a href="mailto:vendors@townsquaremarket.local" style="color:var(--primary); font-weight:600;">vendors@townsquare.local</a><br>
+            General Support: <a href="mailto:hello@townsquaremarket.local" style="color:var(--primary); font-weight:600;">hello@townsquare.local</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Slide-Out Shopping Basket Drawer -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay">
+    <div class="cart-drawer">
+      <div class="cart-header">
+        <h3 class="cart-title">
+          <span>🧺</span> Your Market Basket
+        </h3>
+        <button class="cart-close-btn" id="closeCartBtn" aria-label="Close basket">✕</button>
+      </div>
+
+      <div class="cart-items-container" id="cartItemsContainer">
+        <!-- Rendered by main.js -->
+      </div>
+
+      <div class="cart-footer">
+        <div class="cart-subtotal-row">
+          <span>Items Subtotal:</span>
+          <strong id="cartSubtotal">$0.00</strong>
+        </div>
+        <div class="cart-subtotal-row">
+          <span>Neighborhood Delivery:</span>
+          <span id="cartDelivery" style="color:var(--primary); font-weight:700;">$0.00</span>
+        </div>
+        <div class="cart-total-row">
+          <span>Estimated Total:</span>
+          <span id="cartTotal" style="color:var(--primary-dark);">$0.00</span>
+        </div>
+        <button id="cartCheckoutBtn" class="btn btn-primary btn-checkout">
+          Proceed to Checkout ➔
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Digital Payment & Checkout Modal -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal-content" style="max-width: 540px;">
+      <button class="modal-close-btn" id="checkoutModalCloseBtn">✕</button>
+      <div style="padding: 2.25rem;">
+        <span class="badge badge-organic" style="margin-bottom:0.5rem;">Secure Digital Checkout</span>
+        <h2 style="font-size: 1.45rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 0.25rem;">Complete Neighborhood Order</h2>
+        <form id="checkoutForm">
+          <div class="form-group">
+            <label class="form-label">Your Full Name <span class="req">*</span></label>
+            <input type="text" id="checkoutName" class="form-input" placeholder="e.g. Adarsh Singh" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number for Courier <span class="req">*</span></label>
+            <input type="tel" id="checkoutPhone" class="form-input" placeholder="+91 98765 43210" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Local Delivery Address <span class="req">*</span></label>
+            <textarea id="checkoutAddress" class="form-textarea" placeholder="Flat No., Building, Street Name" style="min-height:75px;" required></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Digital Payment Method <span class="req">*</span></label>
+            <div style="display:flex; flex-direction:column; gap:0.5rem; margin-top:0.35rem;">
+              <label class="filter-checkbox-label" style="background:var(--bg-subtle); padding:0.6rem 0.85rem; border-radius:var(--radius-sm);">
+                <input type="radio" name="paymentMethod" value="UPI / QR Code" checked>
+                <span>📱 <strong>Instant UPI / QR Code</strong></span>
+              </label>
+              <label class="filter-checkbox-label" style="background:var(--bg-subtle); padding:0.6rem 0.85rem; border-radius:var(--radius-sm);">
+                <input type="radio" name="paymentMethod" value="Credit/Debit Card">
+                <span>💳 <strong>Credit or Debit Card</strong></span>
+              </label>
+              <label class="filter-checkbox-label" style="background:var(--bg-subtle); padding:0.6rem 0.85rem; border-radius:var(--radius-sm);">
+                <input type="radio" name="paymentMethod" value="Cash on Delivery">
+                <span>💵 <strong>Cash on Delivery (COD)</strong></span>
+              </label>
+            </div>
+          </div>
+          <div style="background:var(--bg-body); border:1px dashed var(--border); border-radius:var(--radius-md); padding:1rem; margin:1.25rem 0; font-size:0.875rem;">
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.3rem;"><span>Subtotal:</span><strong id="checkoutSummarySubtotal">/bin/zsh.00</strong></div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.3rem; color:var(--accent);"><span>Discount:</span><strong id="checkoutSummaryDiscount">-/bin/zsh.00</strong></div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.3rem;"><span>Delivery:</span><strong id="checkoutSummaryDelivery">/bin/zsh.00</strong></div>
+            <div style="display:flex; justify-content:space-between; font-size:1.1rem; font-weight:800; color:var(--primary-dark); padding-top:0.4rem; border-top:1px solid var(--border);"><span>Final Total:</span><span id="checkoutSummaryTotal">/bin/zsh.00</span></div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Place Order & Dispatch Courier ➔</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Tracking Modal -->
+  <div class="modal-overlay" id="orderTrackingModal">
+    <div class="modal-content" style="max-width: 580px;">
+      <button class="modal-close-btn" id="trackModalCloseBtn">✕</button>
+      <div style="padding: 2.25rem;">
+        <span class="badge badge-organic" style="margin-bottom:0.5rem;">Live Courier Tracking</span>
+        <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 0.25rem;">Order Status: <span id="trackOrderId">TS-1081</span></h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Placed on <span id="trackOrderDate">Nov 4, 2026</span> • Arrival: <strong id="trackEta" style="color:var(--primary);">Within 25 mins</strong></p>
+        <div style="display:flex; justify-content:space-between; position:relative; margin-bottom:2rem; padding:0 0.5rem;">
+          <div style="position:absolute; top:14px; left:20px; right:20px; height:4px; background:var(--border); z-index:1;"></div>
+          <div class="track-step completed" style="display:flex; flex-direction:column; align-items:center; position:relative; z-index:2; gap:0.3rem;"><div style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700;">✓</div><span style="font-size:0.75rem; font-weight:700; color:var(--primary-dark);">Placed</span></div>
+          <div class="track-step completed" style="display:flex; flex-direction:column; align-items:center; position:relative; z-index:2; gap:0.3rem;"><div style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700;">✓</div><span style="font-size:0.75rem; font-weight:700; color:var(--primary-dark);">Preparing</span></div>
+          <div class="track-step completed" style="display:flex; flex-direction:column; align-items:center; position:relative; z-index:2; gap:0.3rem;"><div style="width:30px; height:30px; border-radius:50%; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700;">🚲</div><span style="font-size:0.75rem; font-weight:700; color:var(--accent);">On Way</span></div>
+          <div class="track-step" style="display:flex; flex-direction:column; align-items:center; position:relative; z-index:2; gap:0.3rem;"><div style="width:30px; height:30px; border-radius:50%; background:#e5e7eb; color:#6b7280; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700;">4</div><span style="font-size:0.75rem; font-weight:700; color:#6b7280;">Delivered</span></div>
+        </div>
+        <div style="background:var(--bg-subtle); border-radius:var(--radius-md); padding:1.25rem; font-size:0.875rem; display:flex; flex-direction:column; gap:0.6rem; margin-bottom:1.5rem;">
+          <div><strong>Recipient: </strong><span id="trackCustomer">Aarav Sharma</span></div>
+          <div><strong>Delivery Address: </strong><span id="trackAddress">Green Valley Apt, West End</span></div>
+          <div><strong>Courier: </strong><span id="trackCourier">Vikram (Eco Bike #12)</span></div>
+          <div><strong>Total: </strong><span id="trackTotal">.42</span></div>
+        </div>
+        <div style="display:flex; gap:0.5rem;">
+          <input type="text" id="trackOrderSearchInput" placeholder="Enter other Order ID (e.g. TS-1080)" class="form-input" style="flex-grow:1; font-size:0.85rem;">
+          <button id="trackLookupBtn" class="btn btn-primary btn-sm">Lookup 🔍</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Anchor -->
+  <div class="toast-container"></div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-icon">🌿</div>
+            <div>Town<span class="highlight">Square</span></div>
+          </a>
+          <p class="footer-bio">
+            TownSquare is an online cooperative marketplace designed specifically for neighborhood small vendors, organic farmers, bakers, and artisans.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="Instagram">📸</a>
+            <a href="#" class="social-link" aria-label="Facebook">📘</a>
+            <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore Market</h4>
+          <ul class="footer-links">
+            <li><a href="shop.html?category=produce">Organic Produce</a></li>
+            <li><a href="shop.html?category=bakery">Artisan Bakery</a></li>
+            <li><a href="shop.html?category=pantry">Raw Honey & Preserves</a></li>
+            <li><a href="shop.html?category=crafts">Pottery & Handcrafts</a></li>
+            <li><a href="shop.html?category=living">Eco Home & Wellness</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Small Vendors</h4>
+          <ul class="footer-links">
+            <li><a href="vendors.html">Vendor Directory</a></li>
+            <li><a href="join-vendor.html">Apply for a Stall</a></li>
+            <li><a href="#pricing">Platform Fee Structure</a></li>
+            <li><a href="#faq">Vendor FAQs</a></li>
+            <li><a href="#contact">Stall Support Desk</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Neighborhood Harvest Club</h4>
+          <p style="font-size:0.875rem; color:#9cb2a6; margin-bottom:1rem;">
+            Get weekly updates on what’s freshly harvested each Friday and seasonal stall specials.
+          </p>
+          <form class="newsletter-form">
+            <div class="newsletter-input-group">
+              <input type="email" placeholder="Your neighborhood email" required>
+              <button type="submit">Join</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 TownSquare Market. Built for Independent Small Vendors. CSE326 Web Technologies Project.</p>
+        <p>100% Carbon-Neutral Local Logistics • Verified Food Safety</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/vendors.js"></script>
+</body>
+</html>

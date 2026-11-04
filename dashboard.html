@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin & Vendor Management Dashboard | TownSquare Market</title>
+  <meta name="description" content="Centralized management portal for local market vendors and administrators: catalog management, inventory tracking, order dispatch, and stall approvals.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+  <style>
+    .dashboard-tabs {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 2rem;
+      overflow-x: auto;
+      padding-bottom: 0.25rem;
+    }
+    .dashboard-tab-btn {
+      padding: 0.75rem 1.4rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition-fast);
+      white-space: nowrap;
+    }
+    .dashboard-tab-btn:hover {
+      color: var(--primary);
+      background-color: var(--primary-subtle);
+    }
+    .dashboard-tab-btn.active {
+      color: var(--primary-dark);
+      background-color: #ffffff;
+      border: 2px solid var(--border);
+      border-bottom-color: #ffffff;
+      margin-bottom: -2px;
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .kpi-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-fast);
+    }
+    .kpi-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary-light);
+    }
+    .kpi-title {
+      font-size: 0.825rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .kpi-value {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      line-height: 1.1;
+      margin-bottom: 0.35rem;
+    }
+    .kpi-subtext {
+      font-size: 0.775rem;
+      color: var(--text-light);
+    }
+    .data-table-wrap {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow-x: auto;
+      box-shadow: var(--shadow-sm);
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.885rem;
+    }
+    .data-table th {
+      background: var(--bg-subtle);
+      padding: 1rem 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    .data-table td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border-light);
+      vertical-align: middle;
+    }
+    .data-table tr:hover td {
+      background: #faf9f6;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .status-badge.confirmed { background: #e0f2fe; color: #0369a1; }
+    .status-badge.preparing { background: #fef3c7; color: #92400e; }
+    .status-badge.out-delivery { background: #fef08a; color: #854d0e; }
+    .status-badge.delivered { background: #dcfce7; color: #15803d; }
+    .status-badge.low-stock { background: #fee2e2; color: #991b1b; }
+    .status-badge.ok-stock { background: #d1fae5; color: #065f46; }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container">
+      <span>⚙️ <strong>Vendor & Admin Control Center</strong> • CSE326 Academic Project • Inventory & Order Management Portal</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <div class="logo-icon">🌿</div>
+          <div>Town<span class="highlight">Square</span></div>
+        </a>
+
+        <nav class="nav-menu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="shop.html" class="nav-link">Marketplace</a>
+          <a href="vendors.html" class="nav-link">Local Stalls</a>
+          <a href="join-vendor.html" class="nav-link">Become a Vendor</a>
+          <a href="dashboard.html" class="nav-link active">Admin Portal</a>
+        </nav>
+
+        <div class="header-actions">
+          <button id="openTrackOrderBtn" class="btn btn-outline btn-sm">
+            🚚 Track Order
+          </button>
+
+          <button id="openCartBtn" class="action-btn" aria-label="Open shopping basket">
+            🧺
+            <span class="action-badge header-cart-badge" style="display:none;">0</span>
+          </button>
+
+          <a href="shop.html" class="btn btn-primary btn-sm vendor-cta-btn">
+            View Live Store ➔
+          </a>
+
+          <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+            ☰
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header" style="padding: 2.5rem 0;">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span style="color:var(--text-main); font-weight:600;">Admin & Vendor Dashboard</span>
+      </div>
+      <h1 class="section-title" style="margin-bottom: 0.5rem; font-size:2.2rem;">Market Management Dashboard</h1>
+      <p class="section-desc">Real-time inventory tracking, order dispatch management, vendor stall registry, and promotional campaigns.</p>
+    </div>
+  </section>
+
+  <!-- Main Dashboard Content -->
+  <main class="container" style="padding-top: 2.5rem; padding-bottom: 5rem;">
+    <!-- Top KPI Summary Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-title">
+          <span>Gross Market Volume</span>
+          <span>💰</span>
+        </div>
+        <div class="kpi-value" id="kpiGrossRevenue">$0.00</div>
+        <div class="kpi-subtext">Direct to local vendors & farmers</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-title">
+          <span>Total Orders</span>
+          <span>📦</span>
+        </div>
+        <div class="kpi-value" id="kpiTotalOrders">0</div>
+        <div class="kpi-subtext">Fulfilled via neighborhood couriers</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-title">
+          <span>Active Local Stalls</span>
+          <span>🏪</span>
+        </div>
+        <div class="kpi-value" id="kpiActiveVendors">0</div>
+        <div class="kpi-subtext">Verified small business makers</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-title">
+          <span>Low-Stock Warnings</span>
+          <span>⚠️</span>
+        </div>
+        <div class="kpi-value" id="kpiLowStock" style="color: #d97706;">0</div>
+        <div class="kpi-subtext">Products needing replenishment</div>
+      </div>
+    </div>
+
+    <!-- Dashboard Tabs Navigation -->
+    <div class="dashboard-tabs">
+      <button class="dashboard-tab-btn active" data-tab="tabInventory">
+        <span>📦</span> Product Catalog & Inventory
+      </button>
+      <button class="dashboard-tab-btn" data-tab="tabOrders">
+        <span>📋</span> Order Management & Dispatch (<span id="tabOrderCount">0</span>)
+      </button>
+      <button class="dashboard-tab-btn" data-tab="tabVendors">
+        <span>👨‍🌾</span> Vendor Stalls Directory
+      </button>
+      <button class="dashboard-tab-btn" data-tab="tabPromos">
+        <span>🏷️</span> Promotions & Coupons
+      </button>
+    </div>
+
+    <!-- TAB 1: Product Catalog & Inventory -->
+    <div id="tabInventory" class="dashboard-tab-content">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <h2 style="font-size:1.35rem; font-weight:800; color:var(--text-main);">Stall Inventory Management</h2>
+          <p style="font-size:0.875rem; color:var(--text-muted);">Manage product listings, monitor live stock levels, and trigger instant restocks.</p>
+        </div>
+        <button id="openAddProductModalBtn" class="btn btn-primary btn-sm">
+          + Add New Product
+        </button>
+      </div>
+
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Vendor Stall</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Stock Status</th>
+              <th>Rating</th>
+              <th style="text-align:right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="inventoryTableBody">
+            <!-- Rendered by dashboard.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 2: Order Management & Dispatch -->
+    <div id="tabOrders" class="dashboard-tab-content" style="display: none;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <h2 style="font-size:1.35rem; font-weight:800; color:var(--text-main);">Live Customer Orders</h2>
+          <p style="font-size:0.875rem; color:var(--text-muted);">Track customer deliveries, update order fulfillment stages, and monitor payments.</p>
+        </div>
+      </div>
+
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>Items & Qty</th>
+              <th>Total Paid</th>
+              <th>Payment Method</th>
+              <th>Fulfillment Status</th>
+              <th>Courier</th>
+              <th style="text-align:right;">Update Status</th>
+            </tr>
+          </thead>
+          <tbody id="ordersTableBody">
+            <!-- Rendered by dashboard.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 3: Vendors Directory -->
+    <div id="tabVendors" class="dashboard-tab-content" style="display: none;">
+      <div style="margin-bottom:1.25rem;">
+        <h2 style="font-size:1.35rem; font-weight:800; color:var(--text-main);">Registered Local Stalls</h2>
+        <p style="font-size:0.875rem; color:var(--text-muted);">All verified producers, bakers, and artisans currently active on TownSquare.</p>
+      </div>
+
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Stall Name</th>
+              <th>Category</th>
+              <th>Location</th>
+              <th>Orders Fulfilled</th>
+              <th>Community Rating</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="vendorsTableBody">
+            <!-- Rendered by dashboard.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 4: Promotions & Coupons -->
+    <div id="tabPromos" class="dashboard-tab-content" style="display: none;">
+      <div style="margin-bottom:1.5rem;">
+        <h2 style="font-size:1.35rem; font-weight:800; color:var(--text-main);">Active Promotional Discounts</h2>
+        <p style="font-size:0.875rem; color:var(--text-muted);">Current promotional discount codes automatically verified at checkout.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem;">
+        <div style="background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:1.5rem;">
+          <span class="badge badge-best" style="margin-bottom:0.75rem;">10% Off</span>
+          <h3 style="font-size:1.25rem; font-weight:800; color:var(--primary-dark); margin-bottom:0.25rem;">LOCALLOVE10</h3>
+          <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:1rem;">Gives 10% discount on entire neighborhood cart subtotal.</p>
+          <span style="font-size:0.75rem; color:var(--primary); font-weight:700;">Status: Active & Valid</span>
+        </div>
+
+        <div style="background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:1.5rem;">
+          <span class="badge badge-organic" style="margin-bottom:0.75rem;">Free Delivery</span>
+          <h3 style="font-size:1.25rem; font-weight:800; color:var(--primary-dark); margin-bottom:0.25rem;">FREESHIP</h3>
+          <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:1rem;">Waives $3.99 neighborhood courier fee on any size order.</p>
+          <span style="font-size:0.75rem; color:var(--primary); font-weight:700;">Status: Active & Valid</span>
+        </div>
+
+        <div style="background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:1.5rem;">
+          <span class="badge badge-artisan" style="margin-bottom:0.75rem;">$5 Welcome Gift</span>
+          <h3 style="font-size:1.25rem; font-weight:800; color:var(--primary-dark); margin-bottom:0.25rem;">WELCOME20</h3>
+          <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:1rem;">Deducts flat $5.00 off for first-time neighborhood customers.</p>
+          <span style="font-size:0.75rem; color:var(--primary); font-weight:700;">Status: Active & Valid</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Add Product Modal -->
+  <div class="modal-overlay" id="addProductModal">
+    <div class="modal-content" style="max-width: 600px;">
+      <button class="modal-close-btn" id="closeAddProductModalBtn">✕</button>
+      <div style="padding: 2.25rem;">
+        <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 0.25rem;">
+          Add New Product to Stall Catalog
+        </h2>
+        <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+          The item will immediately be listed in the live marketplace with inventory tracking.
+        </p>
+
+        <form id="addProductForm">
+          <div class="form-group">
+            <label class="form-label">Product Title <span class="req">*</span></label>
+            <input type="text" id="newProdTitle" class="form-input" placeholder="e.g. Organic Honeycrisp Apples" required>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Vendor Stall <span class="req">*</span></label>
+              <select id="newProdVendor" class="form-select" required>
+                <!-- Populated dynamically -->
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Category <span class="req">*</span></label>
+              <select id="newProdCategory" class="form-select" required>
+                <option value="produce">Organic Produce</option>
+                <option value="bakery">Artisan Bakery</option>
+                <option value="pantry">Pantry & Preserves</option>
+                <option value="crafts">Handmade Crafts</option>
+                <option value="living">Home & Wellness</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Unit Price ($) <span class="req">*</span></label>
+              <input type="number" id="newProdPrice" class="form-input" step="0.25" min="1" placeholder="6.50" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Initial Inventory Stock <span class="req">*</span></label>
+              <input type="number" id="newProdStock" class="form-input" min="1" placeholder="20" required>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Unit Packaging</label>
+              <input type="text" id="newProdUnit" class="form-input" placeholder="e.g. 1 lb basket / per jar" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Badge</label>
+              <select id="newProdBadge" class="form-select">
+                <option value="organic">100% Organic</option>
+                <option value="artisan">Artisan Made</option>
+                <option value="best">Best Seller</option>
+                <option value="vegan">Vegan / Eco</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Image URL</label>
+            <input type="url" id="newProdImage" class="form-input" placeholder="https://images.unsplash.com/..." value="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=700&q=80">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Short Description</label>
+            <textarea id="newProdDesc" class="form-textarea" placeholder="Describe the taste, ingredients, or craftsmanship..." style="min-height: 80px;" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 1rem;">
+            Save & Publish to Marketplace ➔
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide-Out Shopping Basket Drawer -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay">
+    <div class="cart-drawer">
+      <div class="cart-header">
+        <h3 class="cart-title"><span>🧺</span> Your Market Basket</h3>
+        <button class="cart-close-btn" id="closeCartBtn">✕</button>
+      </div>
+      <div class="cart-items-container" id="cartItemsContainer"></div>
+      <div class="cart-footer">
+        <div class="cart-subtotal-row"><span>Items Subtotal:</span><strong id="cartSubtotal">$0.00</strong></div>
+        <div class="cart-subtotal-row" id="cartDiscountRow" style="display:none; color:var(--accent);"><span>Discount:</span><strong id="cartDiscount">-$0.00</strong></div>
+        <div class="cart-subtotal-row"><span>Delivery:</span><span id="cartDelivery">$0.00</span></div>
+        <div class="cart-total-row"><span>Estimated Total:</span><span id="cartTotal">$0.00</span></div>
+        <button id="cartCheckoutBtn" class="btn btn-primary btn-checkout">Proceed to Checkout ➔</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Digital Payment & Checkout Modal -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal-content" style="max-width: 540px;">
+      <button class="modal-close-btn" id="checkoutModalCloseBtn">✕</button>
+      <div style="padding: 2.25rem;">
+        <h2 style="font-size: 1.45rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 0.25rem;">
+          Complete Neighborhood Order
+        </h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+          Secure local checkout. Supporting independent family vendors.
+        </p>
+
+        <form id="checkoutForm">
+          <div class="form-group">
+            <label class="form-label">Your Full Name <span class="req">*</span></label>
+            <input type="text" id="checkoutName" class="form-input" placeholder="e.g. Adarsh Singh" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number for Courier <span class="req">*</span></label>
+            <input type="tel" id="checkoutPhone" class="form-input" placeholder="+91 98765 43210" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Local Delivery Address <span class="req">*</span></label>
+            <textarea id="checkoutAddress" class="form-textarea" placeholder="Flat No., Building, Street Name, Landmark" style="min-height:75px;" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Select Digital Payment Method <span class="req">*</span></label>
+            <div style="display:flex; flex-direction:column; gap:0.5rem; margin-top:0.35rem;">
+              <label class="filter-checkbox-label" style="background:var(--bg-subtle); padding:0.6rem 0.85rem; border-radius:var(--radius-sm);">
+                <input type="radio" name="paymentMethod" value="UPI / QR Code" checked>
+                <span>📱 <strong>Instant UPI / QR Code</strong> (Google Pay, PhonePe, Paytm)</span>
+              </label>
+              <label class="filter-checkbox-label" style="background:var(--bg-subtle); padding:0.6rem 0.85rem; border-radius:var(--radius-sm);">
+                <input type="radio" name="paymentMethod" value="Credit/Debit Card">
+                <span>💳 <strong>Credit or Debit Card</strong> (Visa, Mastercard, RuPay)</span>
+              </label>
+              <label class="filter-checkbox-label" style="background:var(--bg-subtle); padding:0.6rem 0.85rem; border-radius:var(--radius-sm);">
+                <input type="radio" name="paymentMethod" value="Cash on Delivery">
+                <span>💵 <strong>Cash on Delivery (COD)</strong> upon bike courier arrival</span>
+              </label>
+            </div>
+          </div>
+
+          <div style="background:var(--bg-body); border:1px dashed var(--border); border-radius:var(--radius-md); padding:1rem; margin:1.25rem 0; font-size:0.875rem;">
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.3rem;"><span>Subtotal:</span><strong id="checkoutSummarySubtotal">$0.00</strong></div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.3rem; color:var(--accent);"><span>Discount:</span><strong id="checkoutSummaryDiscount">-$0.00</strong></div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.3rem;"><span>Delivery:</span><strong id="checkoutSummaryDelivery">$0.00</strong></div>
+            <div style="display:flex; justify-content:space-between; font-size:1.1rem; font-weight:800; color:var(--primary-dark); padding-top:0.4rem; border-top:1px solid var(--border);">
+              <span>Final Total:</span><span id="checkoutSummaryTotal">$0.00</span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+            Place Order & Dispatch Courier ➔
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Tracking Modal -->
+  <div class="modal-overlay" id="orderTrackingModal">
+    <div class="modal-content" style="max-width: 580px;">
+      <button class="modal-close-btn" id="trackModalCloseBtn">✕</button>
+      <div style="padding: 2.25rem;">
+        <span class="badge badge-organic" style="margin-bottom:0.5rem;">Live Courier Tracking</span>
+        <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 0.25rem;">
+          Order Status: <span id="trackOrderId">TS-1081</span>
+        </h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+          Placed on <span id="trackOrderDate">Nov 4, 2026</span> • Estimated Arrival: <strong id="trackEta" style="color:var(--primary);">Within 25 mins</strong>
+        </p>
+
+        <!-- Visual Progress Bar -->
+        <div style="display:flex; justify-content:space-between; position:relative; margin-bottom:2rem; padding:0 0.5rem;">
+          <div style="position:absolute; top:14px; left:20px; right:20px; height:4px; background:var(--border); z-index:1;"></div>
+          <div class="track-step completed" style="display:flex; flex-direction:column; align-items:center; position:relative; z-index:2; gap:0.3rem;">
+            <div style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700;">✓</div>
+            <span style="font-size:0.75rem; font-weight:700; color:var(--primary-dark);">Placed</span>
+          </div>
+          <div class="track-step completed" style="display:flex; flex-direction:column; align-items:center; position:relative; z-index:2; gap:0.3rem;">
+            <div style="width:30px; height:30px; border-radius:50%; background:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700;">✓</div>
+            <span style="font-size:0.75rem; font-weight:700; color:var(--primary-dark);">Preparing</span>
+          </div>
+          <div class="track-step completed" style="display:flex; flex-direction:column; align-items:center; position:relative; z-index:2; gap:0.3rem;">
+            <div style="width:30px; height:30px; border-radius:50%; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700;">🚲</div>
+            <span style="font-size:0.75rem; font-weight:700; color:var(--accent);">On the Way</span>
+          </div>
+          <div class="track-step" style="display:flex; flex-direction:column; align-items:center; position:relative; z-index:2; gap:0.3rem;">
+            <div style="width:30px; height:30px; border-radius:50%; background:#e5e7eb; color:#6b7280; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700;">4</div>
+            <span style="font-size:0.75rem; font-weight:700; color:#6b7280;">Delivered</span>
+          </div>
+        </div>
+
+        <div style="background:var(--bg-subtle); border-radius:var(--radius-md); padding:1.25rem; font-size:0.875rem; display:flex; flex-direction:column; gap:0.6rem; margin-bottom:1.5rem;">
+          <div><strong>Recipient: </strong><span id="trackCustomer">Aarav Sharma</span></div>
+          <div><strong>Delivery Address: </strong><span id="trackAddress">Green Valley Apt, West End</span></div>
+          <div><strong>Courier Partner: </strong><span id="trackCourier">Vikram (Eco Bike #12)</span></div>
+          <div><strong>Total Order Bill: </strong><span id="trackTotal">$16.42</span></div>
+        </div>
+
+        <div style="display:flex; gap:0.5rem;">
+          <input type="text" id="trackOrderSearchInput" placeholder="Enter other Order ID (e.g. TS-1080)" class="form-input" style="flex-grow:1; font-size:0.85rem;">
+          <button id="trackLookupBtn" class="btn btn-primary btn-sm">Lookup 🔍</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Anchor -->
+  <div class="toast-container"></div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none; padding:1.5rem 0 0;">
+        <p>© 2026 TownSquare Market. Built for Independent Small Vendors. CSE326 Web Technologies Project.</p>
+        <p><a href="index.html" style="text-decoration:underline;">Return to Main Website</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

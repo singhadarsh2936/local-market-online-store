@@ -25,7 +25,7 @@ The website consists of **4 fully functional pages**:
 
 2. **`shop.html` (Marketplace / Catalog)**
    - Two-column layout with a live sidebar filtering engine.
-   - Dynamic search filter, category picker, and interactive price range slider ($3 – $30).
+   - Dynamic search filter, category picker, and interactive price range slider (₹50 – ₹1000).
    - Badge filters (100% Organic, Artisan Handmade, Best Seller, Eco/Vegan).
    - Specific local vendor stall filter (e.g., Mama Rosa, Sunbeam, Hometown Honey, Copper & Clay).
    - Dynamic sorting dropdown (Featured, Price Low-to-High, Price High-to-Low, Highest Rated).

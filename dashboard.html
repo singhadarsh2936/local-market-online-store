@@ -199,7 +199,7 @@
           <span>Gross Market Volume</span>
           <span>💰</span>
         </div>
-        <div class="kpi-value" id="kpiGrossRevenue">$0.00</div>
+        <div class="kpi-value" id="kpiGrossRevenue">₹0.00</div>
         <div class="kpi-subtext">Direct to local vendors & farmers</div>
       </div>
 
@@ -353,14 +353,14 @@
         <div style="background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:1.5rem;">
           <span class="badge badge-organic" style="margin-bottom:0.75rem;">Free Delivery</span>
           <h3 style="font-size:1.25rem; font-weight:800; color:var(--primary-dark); margin-bottom:0.25rem;">FREESHIP</h3>
-          <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:1rem;">Waives $3.99 neighborhood courier fee on any size order.</p>
+          <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:1rem;">Waives ₹49 neighborhood courier fee on any size order.</p>
           <span style="font-size:0.75rem; color:var(--primary); font-weight:700;">Status: Active & Valid</span>
         </div>
 
         <div style="background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:1.5rem;">
-          <span class="badge badge-artisan" style="margin-bottom:0.75rem;">$5 Welcome Gift</span>
+          <span class="badge badge-artisan" style="margin-bottom:0.75rem;">₹50 Welcome Gift</span>
           <h3 style="font-size:1.25rem; font-weight:800; color:var(--primary-dark); margin-bottom:0.25rem;">WELCOME20</h3>
-          <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:1rem;">Deducts flat $5.00 off for first-time neighborhood customers.</p>
+          <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:1rem;">Deducts flat ₹50.00 off for first-time neighborhood customers.</p>
           <span style="font-size:0.75rem; color:var(--primary); font-weight:700;">Status: Active & Valid</span>
         </div>
       </div>
@@ -407,8 +407,8 @@
 
           <div class="form-grid-2">
             <div class="form-group">
-              <label class="form-label">Unit Price ($) <span class="req">*</span></label>
-              <input type="number" id="newProdPrice" class="form-input" step="0.25" min="1" placeholder="6.50" required>
+              <label class="form-label">Unit Price (₹) <span class="req">*</span></label>
+              <input type="number" id="newProdPrice" class="form-input" step="5" min="10" placeholder="180" required>
             </div>
 
             <div class="form-group">
@@ -461,10 +461,10 @@
       </div>
       <div class="cart-items-container" id="cartItemsContainer"></div>
       <div class="cart-footer">
-        <div class="cart-subtotal-row"><span>Items Subtotal:</span><strong id="cartSubtotal">$0.00</strong></div>
-        <div class="cart-subtotal-row" id="cartDiscountRow" style="display:none; color:var(--accent);"><span>Discount:</span><strong id="cartDiscount">-$0.00</strong></div>
-        <div class="cart-subtotal-row"><span>Delivery:</span><span id="cartDelivery">$0.00</span></div>
-        <div class="cart-total-row"><span>Estimated Total:</span><span id="cartTotal">$0.00</span></div>
+        <div class="cart-subtotal-row"><span>Items Subtotal:</span><strong id="cartSubtotal">₹0.00</strong></div>
+        <div class="cart-subtotal-row" id="cartDiscountRow" style="display:none; color:var(--accent);"><span>Discount:</span><strong id="cartDiscount">-₹0.00</strong></div>
+        <div class="cart-subtotal-row"><span>Delivery:</span><span id="cartDelivery">₹0.00</span></div>
+        <div class="cart-total-row"><span>Estimated Total:</span><span id="cartTotal">₹0.00</span></div>
         <button id="cartCheckoutBtn" class="btn btn-primary btn-checkout">Proceed to Checkout ➔</button>
       </div>
     </div>
@@ -515,11 +515,11 @@
           </div>
 
           <div style="background:var(--bg-body); border:1px dashed var(--border); border-radius:var(--radius-md); padding:1rem; margin:1.25rem 0; font-size:0.875rem;">
-            <div style="display:flex; justify-content:space-between; margin-bottom:0.3rem;"><span>Subtotal:</span><strong id="checkoutSummarySubtotal">$0.00</strong></div>
-            <div style="display:flex; justify-content:space-between; margin-bottom:0.3rem; color:var(--accent);"><span>Discount:</span><strong id="checkoutSummaryDiscount">-$0.00</strong></div>
-            <div style="display:flex; justify-content:space-between; margin-bottom:0.3rem;"><span>Delivery:</span><strong id="checkoutSummaryDelivery">$0.00</strong></div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.3rem;"><span>Subtotal:</span><strong id="checkoutSummarySubtotal">₹0.00</strong></div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.3rem; color:var(--accent);"><span>Discount:</span><strong id="checkoutSummaryDiscount">-₹0.00</strong></div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.3rem;"><span>Delivery:</span><strong id="checkoutSummaryDelivery">₹0.00</strong></div>
             <div style="display:flex; justify-content:space-between; font-size:1.1rem; font-weight:800; color:var(--primary-dark); padding-top:0.4rem; border-top:1px solid var(--border);">
-              <span>Final Total:</span><span id="checkoutSummaryTotal">$0.00</span>
+              <span>Final Total:</span><span id="checkoutSummaryTotal">₹0.00</span>
             </div>
           </div>
 
@@ -569,7 +569,7 @@
           <div><strong>Recipient: </strong><span id="trackCustomer">Aarav Sharma</span></div>
           <div><strong>Delivery Address: </strong><span id="trackAddress">Green Valley Apt, West End</span></div>
           <div><strong>Courier Partner: </strong><span id="trackCourier">Vikram (Eco Bike #12)</span></div>
-          <div><strong>Total Order Bill: </strong><span id="trackTotal">$16.42</span></div>
+          <div><strong>Total Order Bill: </strong><span id="trackTotal">₹468</span></div>
         </div>
 
         <div style="display:flex; gap:0.5rem;">

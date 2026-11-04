@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const gross = orders.reduce((sum, ord) => sum + ord.total, 0);
     const lowStockCount = products.filter(p => p.stock < 10).length;
 
-    if (kpiRevenue) kpiRevenue.textContent = `$${gross.toFixed(2)}`;
+    if (kpiRevenue) kpiRevenue.textContent = `₹${gross.toFixed(2)}`;
     if (kpiOrders) kpiOrders.textContent = orders.length;
     if (kpiVendors) kpiVendors.textContent = vendors.length;
     if (kpiLowStock) kpiLowStock.textContent = lowStockCount;
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </td>
           <td><span style="color:var(--primary); font-weight:600;">${p.vendor}</span></td>
           <td style="text-transform:capitalize;">${p.category}</td>
-          <td><strong>$${p.price.toFixed(2)}</strong></td>
+          <td><strong>₹${p.price.toFixed(2)}</strong></td>
           <td><span class="${stockBadgeClass}">${stockText}</span></td>
           <td style="color:var(--secondary); font-weight:700;">★ ${p.rating} (${p.reviewsCount})</td>
           <td style="text-align:right;">
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div style="font-size:0.75rem; color:var(--text-muted);">${ord.customerPhone}</div>
           </td>
           <td style="max-width:200px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" title="${itemsSummary}">${itemsSummary}</td>
-          <td><strong style="color:var(--text-main); font-size:0.95rem;">$${ord.total.toFixed(2)}</strong></td>
+          <td><strong style="color:var(--text-main); font-size:0.95rem;">₹${ord.total.toFixed(2)}</strong></td>
           <td><span style="font-size:0.8rem; font-weight:600;">${ord.paymentMethod}</span></td>
           <td><span class="${badgeClass}">${ord.status}</span></td>
           <td><span style="font-size:0.8rem; color:var(--text-muted);">${ord.courier}</span></td>

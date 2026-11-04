@@ -18,169 +18,169 @@ const DEFAULT_PRODUCTS = [
     title: "Woodfired Sourdough Batard",
     vendor: "Mama Rosa's Hearth Bakery",
     category: "bakery",
-    price: 6.50,
-    unit: "per loaf (750g)",
+    price: 180.00,
+    unit: "per loaf (500g)",
     stock: 14,
     rating: 4.9,
     reviewsCount: 38,
     badge: "artisan",
     badgeText: "Artisan Baker",
-    distance: "1.2 miles",
+    distance: "1.2 km",
     image: "https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?auto=format&fit=crop&w=700&q=80",
-    description: "Naturally leavened for 36 hours using organic heritage stoneground flour and baked in a wood-fired brick oven. Crispy caramelized crust with an airy, moist crumb.",
-    vendorStory: "Mama Rosa has been baking traditional European rustic breads in the West End for over 14 years."
+    description: "Naturally leavened for 36 hours using organic heritage stoneground wheat flour and baked in a traditional wood-fired brick oven. Crispy crust with an airy, moist crumb.",
+    vendorStory: "Mama Rosa has been baking traditional rustic breads for over 14 years."
   },
   {
     id: 2,
     title: "Fresh Handpicked Heirloom Strawberries",
     vendor: "Sunbeam Organic Farm",
     category: "produce",
-    price: 5.25,
-    unit: "1 lb basket",
+    price: 160.00,
+    unit: "250g box",
     stock: 22,
     rating: 5.0,
     reviewsCount: 52,
     badge: "organic",
     badgeText: "100% Organic",
-    distance: "3.5 miles",
+    distance: "3.5 km",
     image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=700&q=80",
-    description: "Sun-ripened, pesticide-free heirloom strawberries harvested at dawn from our family-run eco farm. Bursting with sweet natural aroma and rich flavor.",
-    vendorStory: "Sunbeam Farm uses regenerative agriculture practices and natural compost to grow non-GMO berries."
+    description: "Sun-ripened, pesticide-free fresh strawberries harvested at dawn from our family-run eco farm. Bursting with sweet natural aroma.",
+    vendorStory: "Sunbeam Farm uses regenerative agriculture practices and natural organic compost."
   },
   {
     id: 3,
     title: "Raw Wildflower Honeycomb Jar",
     vendor: "Hometown Apiary & Honey",
     category: "pantry",
-    price: 13.50,
-    unit: "16 oz jar",
+    price: 450.00,
+    unit: "500g jar",
     stock: 8,
     rating: 4.8,
     reviewsCount: 29,
     badge: "best",
     badgeText: "Best Seller",
-    distance: "4.1 miles",
+    distance: "4.1 km",
     image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=700&q=80",
-    description: "Unfiltered, unpasteurized honey harvested straight from local clover and wildflower meadows, featuring a generous slice of edible raw beeswax honeycomb.",
-    vendorStory: "Third-generation local beekeepers preserving native pollinators across regional nature reserves."
+    description: "Unfiltered, unpasteurized honey harvested straight from local floral meadows, featuring a generous slice of edible raw honeycomb.",
+    vendorStory: "Third-generation local beekeepers preserving native pollinators across regional reserves."
   },
   {
     id: 4,
     title: "Hand-Thrown Ceramic Coffee Mug",
     vendor: "Copper & Clay Pottery",
     category: "crafts",
-    price: 24.00,
-    unit: "12 oz mug",
+    price: 499.00,
+    unit: "350ml mug",
     stock: 6,
     rating: 4.9,
     reviewsCount: 19,
     badge: "artisan",
     badgeText: "Handmade",
-    distance: "0.8 miles",
+    distance: "0.8 km",
     image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=700&q=80",
-    description: "Hand-thrown stoneware mug dipped in a custom sage green and speckled iron glaze. Microwave and dishwasher safe, with an ergonomic thumb-rest handle.",
-    vendorStory: "Ceramic artist Maya Lin crafts small-batch functional dinnerware in her downtown community studio."
+    description: "Hand-thrown stoneware mug dipped in a custom sage green and speckled iron glaze. Microwave and dishwasher safe.",
+    vendorStory: "Ceramic artist Maya crafts small-batch functional tableware in her community studio."
   },
   {
     id: 5,
-    title: "Cold-Pressed Herb Infused Olive Oil",
+    title: "Cold-Pressed Herb Infused Olive & Mustard Oil",
     vendor: "Valley View Grove",
     category: "pantry",
-    price: 16.00,
-    unit: "375 ml bottle",
+    price: 380.00,
+    unit: "500ml bottle",
     stock: 12,
     rating: 4.7,
     reviewsCount: 22,
     badge: "organic",
     badgeText: "Single-Estate",
-    distance: "5.2 miles",
+    distance: "5.2 km",
     image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=700&q=80",
-    description: "Extra virgin olive oil cold-pressed within 4 hours of harvest and steeped with freshly picked local rosemary, thyme, and roasted garlic cloves.",
-    vendorStory: "Estate-grown olives nurtured under sustainable irrigation in the sun-drenched lower valley."
+    description: "Extra virgin cold-pressed oil steeped with freshly picked local rosemary, mountain thyme, and roasted garlic cloves.",
+    vendorStory: "Estate-grown crops nurtured under sustainable irrigation in the sun-drenched foothills."
   },
   {
     id: 6,
     title: "Organic Rainbow Baby Carrots",
     vendor: "Sunbeam Organic Farm",
     category: "produce",
-    price: 4.00,
-    unit: "per bunch",
+    price: 60.00,
+    unit: "per bunch (500g)",
     stock: 25,
     rating: 4.8,
     reviewsCount: 31,
     badge: "organic",
     badgeText: "Crisp & Sweet",
-    distance: "3.5 miles",
+    distance: "3.5 km",
     image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=700&q=80",
-    description: "Vibrant yellow, purple, and orange heritage carrots washed and bunched with leafy greens intact. Crisp, sweet, and rich in natural beta-carotene.",
-    vendorStory: "Freshly pulled from rich valley silt, delivered to TownSquare within 6 hours of harvest."
+    description: "Vibrant yellow, purple, and orange heritage carrots washed and bunched with leafy greens intact. Crisp and sweet.",
+    vendorStory: "Freshly pulled from rich soil, delivered to TownSquare within 6 hours of harvest."
   },
   {
     id: 7,
     title: "French Butter Croissants (Pack of 4)",
     vendor: "Mama Rosa's Hearth Bakery",
     category: "bakery",
-    price: 11.00,
-    unit: "4-pack",
+    price: 240.00,
+    unit: "4-pack box",
     stock: 15,
     rating: 5.0,
     reviewsCount: 44,
     badge: "best",
     badgeText: "Daily Special",
-    distance: "1.2 miles",
+    distance: "1.2 km",
     image: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=700&q=80",
-    description: "Laminated over three days with 84% cultured pasture-raised butter for unforgettable flake and buttery honeycomb pockets. Baked fresh every morning at 5 AM.",
-    vendorStory: "Authentic pastry made following classical Parisian lamination methods with zero preservatives."
+    description: "Laminated over three days with 100% cultured pure butter for unforgettable flaky honeycomb pockets. Baked fresh at 5 AM daily.",
+    vendorStory: "Authentic pastry made following classical lamination methods with zero artificial preservatives."
   },
   {
     id: 8,
     title: "Lavender & Oat Gentle Goat Milk Soap",
     vendor: "Willow Creek Herbals",
     category: "living",
-    price: 7.50,
-    unit: "4.5 oz bar",
+    price: 199.00,
+    unit: "125g bar",
     stock: 18,
     rating: 4.9,
     reviewsCount: 26,
     badge: "artisan",
     badgeText: "Chemical Free",
-    distance: "2.1 miles",
+    distance: "2.1 km",
     image: "https://images.unsplash.com/photo-1607006310452-9b2f2939634e?auto=format&fit=crop&w=700&q=80",
-    description: "Cold-processed botanical bar soap crafted with raw farm goat milk, colloidal oats, and pure essential oil distilled from organic English lavender.",
-    vendorStory: "Handmade on a 5-acre family homestead dedicated to herbal wellness and zero-waste packaging."
+    description: "Cold-processed botanical bar soap crafted with raw farm goat milk, colloidal oats, and pure lavender essential oils.",
+    vendorStory: "Handmade on a family homestead dedicated to herbal wellness and zero-waste packaging."
   },
   {
     id: 9,
     title: "Hand-Poured Soy Amber Candle",
     vendor: "Amber & Ember Goods",
     category: "living",
-    price: 18.00,
-    unit: "8 oz amber jar",
+    price: 450.00,
+    unit: "200g jar",
     stock: 9,
     rating: 4.8,
     reviewsCount: 35,
     badge: "vegan",
     badgeText: "Eco Soy",
-    distance: "1.5 miles",
+    distance: "1.5 km",
     image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=700&q=80",
-    description: "100% Midwestern soy wax infused with notes of cedarwood, smoked vanilla, and bergamot with a crackling wooden wick. 50+ hours clean burn time.",
-    vendorStory: "Small batch home fragrance studio operating right in the historic downtown warehouse district."
+    description: "100% natural soy wax infused with cedarwood, vanilla, and bergamot with a crackling wooden wick. 40+ hours clean burn.",
+    vendorStory: "Small batch home fragrance studio operating right in the city craft district."
   },
   {
     id: 10,
-    title: "Small-Batch Blackberry Balsamic Jam",
+    title: "Small-Batch Blackberry Preserves Jam",
     vendor: "Valley View Grove",
     category: "pantry",
-    price: 8.75,
-    unit: "8 oz jar",
+    price: 220.00,
+    unit: "250g jar",
     stock: 16,
     rating: 4.9,
     reviewsCount: 18,
     badge: "artisan",
     badgeText: "Low Sugar",
-    distance: "5.2 miles",
+    distance: "5.2 km",
     image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=700&q=80",
-    description: "Wild mountain blackberries simmered in copper kettles with aged Modena balsamic glaze and unrefined cane sugar. Sublime with artisanal cheese boards.",
+    description: "Wild hill blackberries simmered in copper kettles with organic cane sugar. Sublime with warm rotis and toasted sourdough.",
     vendorStory: "Cooked in batches of only 20 jars to preserve whole fruit texture and bright tartness."
   },
   {
@@ -188,38 +188,37 @@ const DEFAULT_PRODUCTS = [
     title: "Woven Cotton Market Tote Bag",
     vendor: "Copper & Clay Pottery",
     category: "crafts",
-    price: 15.00,
+    price: 299.00,
     unit: "each",
     stock: 20,
     rating: 4.7,
     reviewsCount: 14,
     badge: "artisan",
     badgeText: "Sustainable",
-    distance: "0.8 miles",
+    distance: "0.8 km",
     image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=700&q=80",
-    description: "Heavyweight 12oz unbleached organic cotton tote with double reinforced handles, inside pocket, and screen-printed TownSquare botanical motif.",
-    vendorStory: "Screenprinted with eco-friendly water-based inks on certified Fair Trade organic cotton canvas."
+    description: "Heavyweight 12oz unbleached organic cotton canvas tote with double reinforced handles and screen-printed botanical motif.",
+    vendorStory: "Screenprinted with eco-friendly water-based inks on certified organic cotton canvas."
   },
   {
     id: 12,
     title: "Heirloom Vine-Ripened Cherry Tomatoes",
     vendor: "Sunbeam Organic Farm",
     category: "produce",
-    price: 4.50,
-    unit: "1 pint pack",
+    price: 80.00,
+    unit: "250g pack",
     stock: 30,
     rating: 4.9,
     reviewsCount: 27,
     badge: "organic",
     badgeText: "Farm Fresh",
-    distance: "3.5 miles",
+    distance: "3.5 km",
     image: "https://images.unsplash.com/photo-1546470427-e26264be0b11?auto=format&fit=crop&w=700&q=80",
-    description: "Assorted sweet Sun Gold, Black Cherry, and Sweet 100 cherry tomatoes picked on the vine with intensely sweet, candy-like flavor.",
-    vendorStory: "Grown without synthetic pesticides in open greenhouse hoop tunnels with biological pest control."
+    description: "Assorted sweet cherry tomatoes picked fresh on the vine with intensely sweet, candy-like natural flavor.",
+    vendorStory: "Grown without synthetic pesticides in open greenhouse polyhouses."
   }
 ];
 
-// Default Seed Vendors
 const DEFAULT_VENDORS = [
   {
     id: "mama-rosa",
@@ -325,16 +324,16 @@ const DEFAULT_ORDERS = [
     id: "TS-1081",
     customerName: "Aarav Sharma",
     customerPhone: "+91 98765 43210",
-    address: "Flat 402, Green Valley Apartments, West End",
+    address: "Flat 402, Green Valley Apartments, Model Town",
     date: "2026-11-04 08:30 AM",
     items: [
-      { id: 1, title: "Woodfired Sourdough Batard", qty: 2, price: 6.50 },
-      { id: 2, title: "Fresh Handpicked Heirloom Strawberries", qty: 1, price: 5.25 }
+      { id: 1, title: "Woodfired Sourdough Batard", qty: 2, price: 180.00 },
+      { id: 2, title: "Fresh Handpicked Heirloom Strawberries", qty: 1, price: 160.00 }
     ],
-    subtotal: 18.25,
-    discount: 1.83,
+    subtotal: 520.00,
+    discount: 52.00,
     delivery: 0.00,
-    total: 16.42,
+    total: 468.00,
     paymentMethod: "UPI / QR Code",
     paymentStatus: "Paid",
     status: "Out for Delivery",
@@ -346,16 +345,16 @@ const DEFAULT_ORDERS = [
     id: "TS-1080",
     customerName: "Priya Patel",
     customerPhone: "+91 98222 33445",
-    address: "House 18, Riverdale Road, Phase 2",
+    address: "House 18, Lake View Road, Phase 2",
     date: "2026-11-04 07:15 AM",
     items: [
-      { id: 3, title: "Raw Wildflower Honeycomb Jar", qty: 1, price: 13.50 },
-      { id: 5, title: "Cold-Pressed Herb Infused Olive Oil", qty: 1, price: 16.00 }
+      { id: 3, title: "Raw Wildflower Honeycomb Jar", qty: 1, price: 450.00 },
+      { id: 5, title: "Cold-Pressed Herb Infused Olive & Mustard Oil", qty: 1, price: 380.00 }
     ],
-    subtotal: 29.50,
+    subtotal: 830.00,
     discount: 0.00,
-    delivery: 3.99,
-    total: 33.49,
+    delivery: 0.00,
+    total: 830.00,
     paymentMethod: "Credit Card",
     paymentStatus: "Paid",
     status: "Delivered",
@@ -367,15 +366,15 @@ const DEFAULT_ORDERS = [
     id: "TS-1079",
     customerName: "Rohan Verma",
     customerPhone: "+91 98444 55667",
-    address: "Block C-12, Arts District Studio Colony",
+    address: "Block C-12, Arts Studio Colony",
     date: "2026-11-03 04:50 PM",
     items: [
-      { id: 4, title: "Hand-Thrown Ceramic Coffee Mug", qty: 2, price: 24.00 }
+      { id: 4, title: "Hand-Thrown Ceramic Coffee Mug", qty: 2, price: 499.00 }
     ],
-    subtotal: 48.00,
-    discount: 5.00,
+    subtotal: 998.00,
+    discount: 50.00,
     delivery: 0.00,
-    total: 43.00,
+    total: 948.00,
     paymentMethod: "Cash on Delivery",
     paymentStatus: "Pending",
     status: "Preparing Order",
@@ -385,11 +384,10 @@ const DEFAULT_ORDERS = [
   }
 ];
 
-// Valid Promo Codes
 const ACTIVE_PROMOS = {
   "LOCALLOVE10": { type: "percent", value: 10, label: "10% Off Neighborhood Special" },
-  "FREESHIP": { type: "shipping", value: 3.99, label: "Free Local Courier Delivery" },
-  "WELCOME20": { type: "flat", value: 5.00, label: "$5 Off Community Welcome Gift" }
+  "FREESHIP": { type: "shipping", value: 49.00, label: "Free Local Courier Delivery" },
+  "WELCOME20": { type: "flat", value: 50.00, label: "₹50 Off Community Welcome Gift" }
 };
 
 // ==========================================================================
@@ -398,9 +396,9 @@ const ACTIVE_PROMOS = {
 
 class MarketStore {
   constructor() {
-    this.products = this.loadData('townsquare_products', DEFAULT_PRODUCTS);
+    this.products = this.loadData('townsquare_products_v2', DEFAULT_PRODUCTS);
     this.vendors = this.loadData('townsquare_vendors', DEFAULT_VENDORS);
-    this.orders = this.loadData('townsquare_orders', DEFAULT_ORDERS);
+    this.orders = this.loadData('townsquare_orders_v2', DEFAULT_ORDERS);
     this.cart = this.loadData('townsquare_cart', []);
     this.wishlist = this.loadData('townsquare_wishlist', []);
     this.comparisonList = this.loadData('townsquare_comparison', []);
@@ -426,7 +424,7 @@ class MarketStore {
 
   // Products & Inventory Management
   saveProducts() {
-    this.saveData('townsquare_products', this.products);
+    this.saveData('townsquare_products_v2', this.products);
   }
 
   addProduct(productData) {
@@ -496,7 +494,7 @@ class MarketStore {
 
   // Orders Management
   saveOrders() {
-    this.saveData('townsquare_orders', this.orders);
+    this.saveData('townsquare_orders_v2', this.orders);
   }
 
   createOrder(orderData) {
@@ -656,7 +654,7 @@ class MarketStore {
 
   calculateCheckoutSummary() {
     const subtotal = this.getCartSubtotal();
-    let deliveryFee = subtotal >= 35 || subtotal === 0 ? 0.00 : 3.99;
+    let deliveryFee = subtotal >= 499 || subtotal === 0 ? 0.00 : 49.00;
     let discount = 0;
 
     if (this.appliedPromo && subtotal > 0) {
@@ -664,7 +662,7 @@ class MarketStore {
         discount = (subtotal * this.appliedPromo.value) / 100;
       } else if (this.appliedPromo.type === 'shipping') {
         deliveryFee = 0.00;
-        discount = 3.99;
+        discount = 49.00;
       } else if (this.appliedPromo.type === 'flat') {
         discount = Math.min(subtotal, this.appliedPromo.value);
       }
@@ -792,10 +790,10 @@ class MarketStore {
           <a href="shop.html" class="btn btn-primary btn-sm close-cart-link">Browse Marketplace</a>
         </div>
       `;
-      if (subtotalEl) subtotalEl.textContent = '$0.00';
-      if (deliveryEl) deliveryEl.textContent = '$0.00';
+      if (subtotalEl) subtotalEl.textContent = '₹0';
+      if (deliveryEl) deliveryEl.textContent = '₹0';
       if (discountRow) discountRow.style.display = 'none';
-      if (totalEl) totalEl.textContent = '$0.00';
+      if (totalEl) totalEl.textContent = '₹0';
       if (checkoutBtn) {
         checkoutBtn.disabled = true;
         checkoutBtn.style.opacity = '0.6';
@@ -805,19 +803,19 @@ class MarketStore {
 
     const { subtotal, deliveryFee, discount, finalTotal } = this.calculateCheckoutSummary();
 
-    if (subtotalEl) subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
-    if (deliveryEl) deliveryEl.textContent = deliveryFee === 0 ? 'FREE' : `$${deliveryFee.toFixed(2)}`;
+    if (subtotalEl) subtotalEl.textContent = `₹${subtotal.toFixed(2)}`;
+    if (deliveryEl) deliveryEl.textContent = deliveryFee === 0 ? 'FREE' : `₹${deliveryFee.toFixed(2)}`;
 
     if (discountRow && discountEl) {
       if (discount > 0) {
         discountRow.style.display = 'flex';
-        discountEl.textContent = `-$${discount.toFixed(2)}`;
+        discountEl.textContent = `-₹${discount.toFixed(2)}`;
       } else {
         discountRow.style.display = 'none';
       }
     }
 
-    if (totalEl) totalEl.textContent = `$${finalTotal.toFixed(2)}`;
+    if (totalEl) totalEl.textContent = `₹${finalTotal.toFixed(2)}`;
     if (checkoutBtn) {
       checkoutBtn.disabled = false;
       checkoutBtn.style.opacity = '1';
@@ -858,7 +856,7 @@ class MarketStore {
           <div class="cart-item-info">
             <span class="cart-item-vendor">${item.vendor}</span>
             <h5 class="cart-item-title">${item.title}</h5>
-            <span class="cart-item-price">$${item.price.toFixed(2)} / each</span>
+            <span class="cart-item-price">₹${item.price.toFixed(2)} / each</span>
           </div>
           <div class="cart-item-actions">
             <div class="cart-qty-ctrl">
@@ -866,7 +864,7 @@ class MarketStore {
               <span class="cart-qty-val">${item.qty}</span>
               <button class="cart-qty-btn cart-plus-btn" data-id="${item.id}" aria-label="Increase quantity">+</button>
             </div>
-            <span style="font-weight:700; font-size:0.85rem;">$${lineTotal}</span>
+            <span style="font-weight:700; font-size:0.85rem;">₹${lineTotal}</span>
             <button class="cart-remove-btn" data-id="${item.id}">Remove</button>
           </div>
         </div>
@@ -970,7 +968,7 @@ function openQuickView(productId) {
   if (imgEl) imgEl.src = prod.image;
   if (vendorEl) vendorEl.textContent = `📍 Stall: ${prod.vendor} • ${prod.distance}`;
   if (titleEl) titleEl.textContent = prod.title;
-  if (priceEl) priceEl.textContent = `$${prod.price.toFixed(2)}`;
+  if (priceEl) priceEl.textContent = `₹${prod.price.toFixed(2)}`;
   if (unitEl) unitEl.textContent = prod.unit;
   if (ratingEl) ratingEl.innerHTML = `★ ${prod.rating} <span style="color:var(--text-light); font-weight:400;">(${prod.reviewsCount} verified reviews)</span>`;
   if (descEl) descEl.textContent = prod.description;
@@ -1035,10 +1033,10 @@ function openCheckoutModal() {
 
   const { subtotal, deliveryFee, discount, finalTotal } = marketStore.calculateCheckoutSummary();
 
-  document.getElementById('checkoutSummarySubtotal').textContent = `$${subtotal.toFixed(2)}`;
-  document.getElementById('checkoutSummaryDelivery').textContent = deliveryFee === 0 ? 'FREE' : `$${deliveryFee.toFixed(2)}`;
-  document.getElementById('checkoutSummaryDiscount').textContent = `-$${discount.toFixed(2)}`;
-  document.getElementById('checkoutSummaryTotal').textContent = `$${finalTotal.toFixed(2)}`;
+  document.getElementById('checkoutSummarySubtotal').textContent = `₹${subtotal.toFixed(2)}`;
+  document.getElementById('checkoutSummaryDelivery').textContent = deliveryFee === 0 ? 'FREE' : `₹${deliveryFee.toFixed(2)}`;
+  document.getElementById('checkoutSummaryDiscount').textContent = `-₹${discount.toFixed(2)}`;
+  document.getElementById('checkoutSummaryTotal').textContent = `₹${finalTotal.toFixed(2)}`;
 
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -1077,7 +1075,7 @@ function openOrderTrackingModal(orderId) {
   document.getElementById('trackAddress').textContent = targetOrder.address;
   document.getElementById('trackCourier').textContent = `${targetOrder.courier} • ${targetOrder.courierPhone}`;
   document.getElementById('trackEta').textContent = targetOrder.estimatedArrival;
-  document.getElementById('trackTotal').textContent = `$${targetOrder.total.toFixed(2)} (${targetOrder.paymentMethod})`;
+  document.getElementById('trackTotal').textContent = `₹${targetOrder.total.toFixed(2)} (${targetOrder.paymentMethod})`;
 
   // Progress Bar Steps
   const steps = ['Order Confirmed', 'Preparing Order', 'Out for Delivery', 'Delivered'];
@@ -1134,7 +1132,7 @@ function openComparisonModal() {
         <tbody>
           <tr style="border-bottom:1px solid var(--border-light);">
             <td style="padding:0.75rem 1rem; font-weight:700; color:var(--text-muted);">Price / Unit</td>
-            ${items.map(item => `<td style="padding:0.75rem 1rem; font-weight:800; color:var(--primary-dark); font-size:1.1rem;">$${item.price.toFixed(2)} <span style="font-size:0.75rem; color:var(--text-muted); font-weight:400;">${item.unit}</span></td>`).join('')}
+            ${items.map(item => `<td style="padding:0.75rem 1rem; font-weight:800; color:var(--primary-dark); font-size:1.1rem;">₹${item.price.toFixed(2)} <span style="font-size:0.75rem; color:var(--text-muted); font-weight:400;">${item.unit}</span></td>`).join('')}
           </tr>
           <tr style="border-bottom:1px solid var(--border-light);">
             <td style="padding:0.75rem 1rem; font-weight:700; color:var(--text-muted);">Local Vendor Stall</td>
@@ -1232,7 +1230,7 @@ function createProductCardHTML(p) {
 
         <div class="product-footer">
           <div class="product-price-box">
-            <span class="product-price">$${p.price.toFixed(2)}</span>
+            <span class="product-price">₹${p.price.toFixed(2)}</span>
             <span class="product-unit">${p.unit}</span>
           </div>
           <div style="display:flex; gap:0.4rem; align-items:center;">
@@ -1449,7 +1447,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     const input = e.target.querySelector('input[type="email"]');
     if (input && input.value) {
-      showToast(`Subscribed! Enjoy $5 off your next order with code WELCOME20!`, "toast-success", "💌");
+      showToast(`Subscribed! Enjoy ₹50 off your next order with code WELCOME20!`, "toast-success", "💌");
       input.value = '';
     }
   });

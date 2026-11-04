@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Filter state
   let currentCategory = 'all';
-  let maxPrice = 30;
+  let maxPrice = 1000;
   let selectedSpecialties = [];
   let selectedVendors = [];
   let currentSort = 'featured';
@@ -134,8 +134,8 @@ document.addEventListener('DOMContentLoaded', () => {
       chips.push({ label: `Category: ${currentCategory}`, type: 'category' });
     }
 
-    if (maxPrice < 30) {
-      chips.push({ label: `Max $${maxPrice}`, type: 'price' });
+    if (maxPrice < 1000) {
+      chips.push({ label: `Max ₹${maxPrice}`, type: 'price' });
     }
 
     if (searchQuery) {
@@ -177,9 +177,9 @@ document.addEventListener('DOMContentLoaded', () => {
           currentCategory = 'all';
           categoryFilters.forEach(i => i.classList.toggle('active', i.dataset.category === 'all'));
         } else if (type === 'price') {
-          maxPrice = 30;
+          maxPrice = 1000;
           if (priceRange) priceRange.value = 30;
-          if (priceDisplay) priceDisplay.textContent = '$30';
+          if (priceDisplay) priceDisplay.textContent = '₹1000';
         } else if (type === 'search') {
           searchQuery = '';
           if (searchInput) searchInput.value = '';
@@ -201,14 +201,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function resetAllFilters() {
     currentCategory = 'all';
-    maxPrice = 30;
+    maxPrice = 1000;
     selectedSpecialties = [];
     selectedVendors = [];
     searchQuery = '';
 
     categoryFilters.forEach(i => i.classList.toggle('active', i.dataset.category === 'all'));
     if (priceRange) priceRange.value = 30;
-    if (priceDisplay) priceDisplay.textContent = '$30';
+    if (priceDisplay) priceDisplay.textContent = '₹1000';
     if (searchInput) searchInput.value = '';
     specialtyCheckboxes.forEach(cb => cb.checked = false);
     vendorCheckboxes.forEach(cb => cb.checked = false);
@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (priceRange) {
     priceRange.addEventListener('input', (e) => {
       maxPrice = parseFloat(e.target.value);
-      if (priceDisplay) priceDisplay.textContent = `$${maxPrice}`;
+      if (priceDisplay) priceDisplay.textContent = `₹${maxPrice}`;
       filterAndRender();
     });
   }

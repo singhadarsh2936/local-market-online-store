@@ -390,6 +390,38 @@ const ACTIVE_PROMOS = {
   "WELCOME20": { type: "flat", value: 50.00, label: "₹50 Off Community Welcome Gift" }
 };
 
+// Demo One-Tap Accounts for Customer, Admin, and Vendor
+const DEMO_ACCOUNTS = {
+  customer: {
+    name: "Aarav Sharma",
+    email: "aarav.sharma@gmail.com",
+    phone: "+91 98765 43210",
+    address: "Flat 402, Green Valley Apartments, Model Town",
+    role: "customer",
+    roleLabel: "Customer",
+    avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80"
+  },
+  admin: {
+    name: "Market Administrator",
+    email: "admin@townsquare.in",
+    phone: "+91 98000 00000",
+    address: "TownSquare Headquarters, Suite 102",
+    role: "admin",
+    roleLabel: "Admin",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80"
+  },
+  vendor: {
+    name: "Mama Rosa",
+    email: "rosa@hearthbakery.in",
+    phone: "+91 98111 22334",
+    address: "West End Market Stall #4",
+    role: "vendor",
+    roleLabel: "Vendor",
+    stall: "Mama Rosa's Hearth Bakery",
+    avatar: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=150&q=80"
+  }
+};
+
 // ==========================================================================
 // Centralized Data & State Store
 // ==========================================================================
@@ -403,6 +435,134 @@ class MarketStore {
     this.wishlist = this.loadData('townsquare_wishlist', []);
     this.comparisonList = this.loadData('townsquare_comparison', []);
     this.appliedPromo = this.loadData('townsquare_applied_promo', null);
+    this.currentUser = this.loadData('townsquare_user', null);
+    this.oneTapDismissed = sessionStorage.getItem('townsquare_onetap_dismissed') === 'true';
+  }
+
+  // One-Tap Authentication System
+  loginAs(roleKey, customName = null) {
+    let account = DEMO_ACCOUNTS[roleKey] ? { ...DEMO_ACCOUNTS[roleKey] } : { ...DEMO_ACCOUNTS.customer };
+    if (customName && customName.trim()) {
+      account.name = customName.trim();
+      account.email = `${customName.toLowerCase().replace(/[^a-z0-9]/g, '')}@localmail.in`;
+    }
+    this.currentUser = account;
+    this.saveData('townsquare_user', this.currentUser);
+    this.renderAuthUI();
+    showToast(`Logged in as ${account.name} (${account.roleLabel})!`, "toast-success", account.role === 'admin' ? "🛡️" : "👤");
+
+    // Pre-fill checkout form if open
+    const nameInput = document.getElementById('checkoutName');
+    const phoneInput = document.getElementById('checkoutPhone');
+    const addrInput = document.getElementById('checkoutAddress');
+    if (nameInput) nameInput.value = account.name;
+    if (phoneInput && account.phone) phoneInput.value = account.phone;
+    if (addrInput && account.address) addrInput.value = account.address;
+  }
+
+  logout() {
+    this.currentUser = null;
+    this.saveData('townsquare_user', null);
+    this.renderAuthUI();
+    showToast("Signed out of TownSquare.", "toast-info", "👋");
+  }
+
+  renderAuthUI() {
+    const slots = document.querySelectorAll('.auth-nav-slot');
+    const user = this.currentUser;
+
+    slots.forEach(slot => {
+      if (!user) {
+        slot.innerHTML = `
+          <button class="btn btn-outline btn-sm open-auth-btn" style="font-size:0.8rem; padding:0.45rem 0.85rem; border-radius:var(--radius-full);">
+            👤 Sign In
+          </button>
+        `;
+      } else {
+        slot.innerHTML = `
+          <div class="user-nav-wrapper">
+            <div class="user-nav-profile user-profile-toggle">
+              <img src="${user.avatar}" alt="${user.name}" class="user-nav-avatar">
+              <span class="user-nav-name">${user.name.split(' ')[0]}</span>
+              <span class="user-role-pill role-${user.role}">${user.role}</span>
+              <span style="font-size:0.7rem; color:var(--text-light);">▾</span>
+            </div>
+
+            <div class="user-nav-dropdown">
+              <div class="user-nav-dropdown-header">
+                <div class="user-dropdown-name">${user.name}</div>
+                <div class="user-dropdown-email">${user.email}</div>
+              </div>
+
+              ${user.role === 'admin' ? `
+                <a href="dashboard.html" class="user-dropdown-item">
+                  <span>🛡️</span> Admin Dashboard
+                </a>
+              ` : `
+                <button class="user-dropdown-item switch-role-btn" data-role="admin">
+                  <span>🛡️</span> 1-Tap Switch to Admin
+                </button>
+              `}
+
+              ${user.role !== 'customer' ? `
+                <button class="user-dropdown-item switch-role-btn" data-role="customer">
+                  <span>👤</span> 1-Tap Switch to Customer
+                </button>
+              ` : ''}
+
+              <button class="user-dropdown-item track-orders-nav-btn">
+                <span>📦</span> Track My Orders
+              </button>
+
+              <button class="user-dropdown-item signout user-signout-btn">
+                <span>🚪</span> Sign Out
+              </button>
+            </div>
+          </div>
+        `;
+      }
+    });
+
+    // Attach listeners
+    document.querySelectorAll('.open-auth-btn').forEach(btn => {
+      btn.addEventListener('click', openAuthModal);
+    });
+
+    document.querySelectorAll('.user-profile-toggle').forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const dropdown = toggle.nextElementSibling;
+        if (dropdown) dropdown.classList.toggle('show');
+      });
+    });
+
+    document.querySelectorAll('.switch-role-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        this.loginAs(btn.dataset.role);
+        document.querySelectorAll('.user-nav-dropdown').forEach(d => d.classList.remove('show'));
+      });
+    });
+
+    document.querySelectorAll('.track-orders-nav-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        openOrderTrackingModal();
+        document.querySelectorAll('.user-nav-dropdown').forEach(d => d.classList.remove('show'));
+      });
+    });
+
+    document.querySelectorAll('.user-signout-btn').forEach(btn => {
+      btn.addEventListener('click', () => this.logout());
+    });
+
+    // Floating widget visibility
+    const floatingWidget = document.getElementById('googleOneTapPrompt');
+    if (floatingWidget) {
+      if (!user && !this.oneTapDismissed) {
+        floatingWidget.style.display = 'flex';
+      } else {
+        floatingWidget.style.display = 'none';
+      }
+    }
   }
 
   loadData(key, fallback) {
@@ -1038,6 +1198,17 @@ function openCheckoutModal() {
   document.getElementById('checkoutSummaryDiscount').textContent = `-₹${discount.toFixed(2)}`;
   document.getElementById('checkoutSummaryTotal').textContent = `₹${finalTotal.toFixed(2)}`;
 
+  // Auto-fill user credentials if logged in
+  const user = marketStore.currentUser;
+  if (user) {
+    const nameInput = document.getElementById('checkoutName');
+    const phoneInput = document.getElementById('checkoutPhone');
+    const addrInput = document.getElementById('checkoutAddress');
+    if (nameInput) nameInput.value = user.name;
+    if (phoneInput && user.phone) phoneInput.value = user.phone;
+    if (addrInput && user.address) addrInput.value = user.address;
+  }
+
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -1247,6 +1418,23 @@ function createProductCardHTML(p) {
   `;
 }
 
+// One-Tap Authentication Modal Controls
+function openAuthModal() {
+  const modal = document.getElementById('authModal');
+  if (modal) {
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeAuthModal() {
+  const modal = document.getElementById('authModal');
+  if (modal) {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
 // ==========================================================================
 // Vendor Card HTML Generator
 // ==========================================================================
@@ -1301,6 +1489,7 @@ function createVendorCardHTML(v) {
 document.addEventListener('DOMContentLoaded', () => {
   marketStore.updateBadges();
   marketStore.updateComparisonPill();
+  marketStore.renderAuthUI();
 
   // Populate Home Featured Products dynamically if container exists
   const homeProdGrid = document.getElementById('homeFeaturedGrid');
@@ -1452,6 +1641,53 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // One-Tap Auth Modal Listeners
+  document.getElementById('closeAuthModalBtn')?.addEventListener('click', closeAuthModal);
+  document.getElementById('authModal')?.addEventListener('click', (e) => {
+    if (e.target.id === 'authModal') closeAuthModal();
+  });
+
+  document.querySelectorAll('.role-pick-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const role = card.dataset.role;
+      marketStore.loginAs(role);
+      closeAuthModal();
+    });
+  });
+
+  document.getElementById('customQuickLoginForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const input = document.getElementById('customUserNameInput');
+    if (input && input.value) {
+      marketStore.loginAs('customer', input.value.trim());
+      closeAuthModal();
+    }
+  });
+
+  // Floating One-Tap prompt events
+  document.getElementById('closeOneTapPromptBtn')?.addEventListener('click', () => {
+    const prompt = document.getElementById('googleOneTapPrompt');
+    if (prompt) prompt.style.display = 'none';
+    sessionStorage.setItem('townsquare_onetap_dismissed', 'true');
+    marketStore.oneTapDismissed = true;
+  });
+
+  document.getElementById('oneTapQuickCustomerBtn')?.addEventListener('click', () => {
+    marketStore.loginAs('customer');
+  });
+
+  document.getElementById('oneTapQuickAdminLink')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    marketStore.loginAs('admin');
+  });
+
+  // Global document click to close user profile dropdown
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.user-nav-wrapper')) {
+      document.querySelectorAll('.user-nav-dropdown').forEach(d => d.classList.remove('show'));
+    }
+  });
+
   // Global Escape Key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
@@ -1460,6 +1696,7 @@ document.addEventListener('DOMContentLoaded', () => {
       closeCheckoutModal();
       closeOrderTrackingModal();
       closeComparisonModal();
+      closeAuthModal();
     }
   });
 });

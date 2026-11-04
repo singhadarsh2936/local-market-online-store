@@ -2406,3 +2406,287 @@ button {
     transform: translateY(0);
   }
 }
+
+/* ==========================================================================
+   One-Tap Login & Authentication Styles
+   ========================================================================== */
+
+/* User Nav Badge & Dropdown */
+.user-nav-wrapper {
+  position: relative;
+}
+
+.user-nav-profile {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem 0.35rem 0.35rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.user-nav-profile:hover {
+  background: var(--primary-subtle);
+  border-color: var(--primary-light);
+}
+
+.user-nav-avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--primary);
+}
+
+.user-nav-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  max-width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-role-pill {
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-full);
+}
+
+.user-role-pill.role-customer {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.user-role-pill.role-admin {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.user-role-pill.role-vendor {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.user-nav-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  width: 240px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: 0.75rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.35rem;
+  z-index: 105;
+  animation: fadeInDown 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.user-nav-dropdown.show {
+  display: flex;
+}
+
+.user-nav-dropdown-header {
+  padding: 0.5rem 0.75rem 0.75rem;
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 0.35rem;
+}
+
+.user-dropdown-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.user-dropdown-email {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.user-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: var(--transition-fast);
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+.user-dropdown-item:hover {
+  background: var(--bg-subtle);
+  color: var(--primary-dark);
+}
+
+.user-dropdown-item.signout:hover {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Floating Google-Style One-Tap Sign In Prompt */
+.one-tap-floating-widget {
+  position: fixed;
+  top: 5.5rem;
+  right: 1.5rem;
+  width: 330px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xl);
+  padding: 1.25rem;
+  z-index: 950;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  animation: fadeInDown 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.one-tap-widget-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.one-tap-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.one-tap-close-btn {
+  font-size: 1rem;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.one-tap-close-btn:hover {
+  color: #e63946;
+}
+
+.one-tap-account-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: var(--bg-body);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.one-tap-account-card:hover {
+  border-color: var(--primary);
+  background: var(--primary-subtle);
+  transform: translateY(-2px);
+}
+
+.one-tap-avatar {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.one-tap-info h5 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.one-tap-info p {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Modal One-Tap Role Pickers */
+.role-pick-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin: 1.25rem 0;
+}
+
+.role-pick-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  cursor: pointer;
+  transition: var(--transition-bounce);
+}
+
+.role-pick-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.role-pick-card.pick-customer:hover {
+  border-color: #3b82f6;
+  background: #eff6ff;
+}
+
+.role-pick-card.pick-admin:hover {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+
+.role-pick-card.pick-vendor:hover {
+  border-color: #f59e0b;
+  background: #fffbeb;
+}
+
+.role-pick-left {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.role-pick-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+}
+
+.role-pick-icon.customer { background: #dbeafe; color: #1e40af; }
+.role-pick-icon.admin { background: #fee2e2; color: #991b1b; }
+.role-pick-icon.vendor { background: #fef3c7; color: #92400e; }
+
+.role-pick-details h4 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.role-pick-details p {
+  font-size: 0.775rem;
+  color: var(--text-muted);
+}
+

@@ -37,6 +37,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Dashboard Role Switcher
+  function updateDashboardRoleUI() {
+    const user = marketStore.currentUser;
+    const titleEl = document.getElementById('dashRoleTitle');
+    const descEl = document.getElementById('dashRoleDesc');
+    const iconEl = document.getElementById('dashRoleIcon');
+    const switchAdminBtn = document.getElementById('dashSwitchAdminBtn');
+    const switchCustBtn = document.getElementById('dashSwitchCustomerBtn');
+
+    if (user && user.role === 'customer') {
+      if (titleEl) titleEl.textContent = `Active User: ${user.name} (Customer Mode)`;
+      if (descEl) descEl.textContent = `Viewing store catalog & orders from buyer perspective. Switch to Admin mode for restock & dispatch controls.`;
+      if (iconEl) iconEl.textContent = '👤';
+      if (switchCustBtn) switchCustBtn.className = 'btn btn-primary btn-sm';
+      if (switchAdminBtn) switchAdminBtn.className = 'btn btn-outline btn-sm';
+    } else {
+      const adminName = user ? user.name : 'Market Administrator';
+      if (titleEl) titleEl.textContent = `Active User: ${adminName} (Admin Mode)`;
+      if (descEl) descEl.textContent = `Full administrative authority: stock restocks, catalog management, and courier dispatch.`;
+      if (iconEl) iconEl.textContent = '🛡️';
+      if (switchAdminBtn) switchAdminBtn.className = 'btn btn-primary btn-sm';
+      if (switchCustBtn) switchCustBtn.className = 'btn btn-outline btn-sm';
+    }
+  }
+
+  document.getElementById('dashSwitchAdminBtn')?.addEventListener('click', () => {
+    marketStore.loginAs('admin');
+    updateDashboardRoleUI();
+  });
+
+  document.getElementById('dashSwitchCustomerBtn')?.addEventListener('click', () => {
+    marketStore.loginAs('customer');
+    updateDashboardRoleUI();
+  });
+
   // Calculate & Refresh KPIs
   function refreshKPIs() {
     const products = marketStore.products;
@@ -271,6 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Initial render
+  updateDashboardRoleUI();
   refreshKPIs();
   renderInventoryTable();
   renderOrdersTable();

@@ -70,6 +70,7 @@
           </button>
 
           <button id="openTrackOrderBtn" class="btn btn-outline btn-sm" style="font-size:0.8rem; padding:0.45rem 0.85rem;">🚚 Track Order</button>
+          <div class="auth-nav-slot"></div>
           <a href="join-vendor.html" class="btn btn-primary btn-sm vendor-cta-btn">+ Open Stall</a>
 
           <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
@@ -281,6 +282,97 @@
           <button id="trackLookupBtn" class="btn btn-primary btn-sm">Lookup 🔍</button>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- One-Tap Authentication Modal -->
+  <div class="modal-overlay" id="authModal">
+    <div class="modal-content" style="max-width: 480px;">
+      <button class="modal-close-btn" id="closeAuthModalBtn">✕</button>
+      <div style="padding: 2.25rem;">
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⚡</div>
+          <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 0.35rem;">
+            One-Tap Instant Sign-In
+          </h2>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">
+            Experience TownSquare as a Customer or Admin with 1 click. No password required.
+          </p>
+        </div>
+
+        <div class="role-pick-grid">
+          <!-- Customer 1-Tap -->
+          <div class="role-pick-card pick-customer" data-role="customer">
+            <div class="role-pick-left">
+              <div class="role-pick-icon customer">👤</div>
+              <div class="role-pick-details">
+                <h4>Continue as Customer</h4>
+                <p>Aarav Sharma • Auto-fill checkout & orders</p>
+              </div>
+            </div>
+            <span class="btn btn-outline btn-sm" style="font-size:0.75rem; padding:0.35rem 0.75rem; border-color:#3b82f6; color:#1d4ed8;">1-Tap ➔</span>
+          </div>
+
+          <!-- Admin 1-Tap -->
+          <div class="role-pick-card pick-admin" data-role="admin">
+            <div class="role-pick-left">
+              <div class="role-pick-icon admin">🛡️</div>
+              <div class="role-pick-details">
+                <h4>Continue as Market Admin</h4>
+                <p>Curator Admin • Full inventory restock & Order dispatch</p>
+              </div>
+            </div>
+            <span class="btn btn-outline btn-sm" style="font-size:0.75rem; padding:0.35rem 0.75rem; border-color:#ef4444; color:#b91c1c;">1-Tap ➔</span>
+          </div>
+
+          <!-- Vendor 1-Tap -->
+          <div class="role-pick-card pick-vendor" data-role="vendor">
+            <div class="role-pick-left">
+              <div class="role-pick-icon vendor">🏪</div>
+              <div class="role-pick-details">
+                <h4>Continue as Local Vendor</h4>
+                <p>Mama Rosa • Hearth Bakery Stall Owner</p>
+              </div>
+            </div>
+            <span class="btn btn-outline btn-sm" style="font-size:0.75rem; padding:0.35rem 0.75rem; border-color:#f59e0b; color:#92400e;">1-Tap ➔</span>
+          </div>
+        </div>
+
+        <!-- Custom Name Input Option -->
+        <div style="border-top: 1px solid var(--border-light); padding-top: 1.25rem; margin-top: 1rem;">
+          <form id="customQuickLoginForm" style="display: flex; gap: 0.5rem;">
+            <input type="text" id="customUserNameInput" placeholder="Or enter your custom name..." class="form-input" style="font-size: 0.85rem;" required>
+            <button type="submit" class="btn btn-primary btn-sm" style="white-space: nowrap;">
+              Sign In ➔
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating One-Tap Sign In Prompt -->
+  <div class="one-tap-floating-widget" id="googleOneTapPrompt" style="display:none;">
+    <div class="one-tap-widget-header">
+      <div class="one-tap-logo-row">
+        <span>🌿</span>
+        <span>Sign in to TownSquare</span>
+      </div>
+      <button class="one-tap-close-btn" id="closeOneTapPromptBtn" title="Dismiss">✕</button>
+    </div>
+
+    <div class="one-tap-account-card" id="oneTapQuickCustomerBtn">
+      <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80" alt="Aarav Sharma" class="one-tap-avatar">
+      <div class="one-tap-info">
+        <h5>Aarav Sharma</h5>
+        <p>aarav.sharma@gmail.com</p>
+      </div>
+      <span style="margin-left:auto; font-size:0.75rem; font-weight:700; color:var(--primary);">1-Tap</span>
+    </div>
+
+    <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.75rem;">
+      <a href="#" id="oneTapQuickAdminLink" style="color:var(--accent); font-weight:700;">Sign in as Admin 🛡️</a>
+      <span style="color:var(--text-light);">Secure One-Tap</span>
     </div>
   </div>
 

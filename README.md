@@ -66,6 +66,12 @@ The website consists of **4 fully functional pages**:
 ---
 
 ## 🛒 Interactive Features (Vanilla JavaScript)
+- **One-Tap Authentication System**:
+  - Instant 1-click login for **Customer** (Aarav Sharma), **Admin** (Market Administrator), and **Vendor** (Mama Rosa).
+  - Floating Google-style One-Tap sign-in prompt widget with dismiss state.
+  - Header user badge with role pill (`customer`, `admin`, `vendor`) and interactive dropdown menu.
+  - Automatic pre-fill of delivery name, phone, and address in checkout when signed in as customer.
+  - Role switcher in the Admin Dashboard for easy evaluation during project demonstrations.
 - **Shared Persistent State**: Shopping cart and saved favorites persist across pages using `localStorage`.
 - **Slide-Out Shopping Cart Drawer**: Available across all pages via the top navbar cart icon. Supports adding, removing, and adjusting item quantities, plus live subtotal and delivery fee calculations.
 - **Checkout Process**: One-click order simulation with instant celebratory confirmation toast.

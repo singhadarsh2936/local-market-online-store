@@ -109,6 +109,6 @@ Fill in your team's details before uploading to UMS:
 - **Team Name:** [Your Team Name]
 - **Course Code:** CSE326
 - **Registration Number(s):** [Your Reg No., Partner Reg No.]
-- **GitHub Link:** `https://github.com/your-username/local-market-online-store`
-- **Deployed Link:** `https://your-username.github.io/local-market-online-store/`
+- **GitHub Link:** `https://github.com/singhadarsh2936/local-market-online-store`
+- **Deployed Link:** `https://singhadarsh2936.github.io/local-market-online-store/`
 - **Video Presentation Link:** `https://youtu.be/your-video-link`

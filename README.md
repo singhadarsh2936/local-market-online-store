@@ -1,7 +1,9 @@
 # 🌿 TownSquare Local Market
 ### *Online Store & Multi-Vendor Marketplace for Neighborhood Small Vendors*
 > **Course Project:** CSE326 — Internet & Web Technologies  
-> **Topic:** Local Market Online Store for Small Vendors
+> **Topic:** Local Market Online Store for Small Vendors  
+> **GitHub Repository:** [https://github.com/singhadarsh2936/local-market-online-store](https://github.com/singhadarsh2936/local-market-online-store)  
+> **Live Deployed Website:** [https://singhadarsh2936.github.io/local-market-online-store/](https://singhadarsh2936.github.io/local-market-online-store/)
 
 ---
 
